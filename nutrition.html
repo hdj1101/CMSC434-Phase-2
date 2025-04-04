@@ -4,15 +4,17 @@
     <title>Tab 1 / Main</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=640, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="container">
         <h1>-Nutrition-</h1>
         <div class="content">
-
+            <!-- Main content of the page here -->
         </div>
 
+        <!-- Main Image Section -->
         <div class="image-container">
             <div class="image-item">
                 <a href="exercise.html">
@@ -34,6 +36,63 @@
                 </a>
             </div>
         </div>
+
+        <!-- Plus Button -->
+        <button class="plus-button" id="plusButton">+</button>
+
+        <!-- Exercise/Meal options -->
+        <div class="overlay-container" id="overlayContainer">
+            <button class="close-overlay" id="closeOverlayButton" onclick="closeOverlay()">X</button>
+            <div class="overlay-item" id="exerciseButton">
+                <button onclick="displayExerciseForm()">Exercise</button>
+            </div>
+            <div class="overlay-item" id="mealButton">
+                <button onclick="displayMealForm()">Meal</button>
+            </div>
+        </div>
+        
+        <!-- Exercise Form (Hidden) -->
+        <div id="exerciseForm" class="exercise-form" style="display: none;">
+            <button class="close-btn" onclick="closeForm()">X</button>
+            <h2>Exercise</h2>
+            <select>
+                <option value="Cycling">Cycling</option>
+                <option value="Hiking">Hiking</option>
+                <option value="Rowing">Rowing</option>
+                <option value="Rock Climbing">Rock Climbing</option>
+                <option value="Running">Running</option>
+                <option value="Sport Practice">Sport Practice</option>
+                <option value="Walking">Walking</option>
+                <option value="Workout">Workout</option>
+                <option value="Yoga">Yoga</option>
+            </select>
+            <textarea placeholder="Describe your exercise..."></textarea>
+            <input type="number" placeholder="Duration (minutes)">
+            <!-- <label>How did you feel?</label> -->
+            <!-- <input type="range" min="1" max="10" placeholder="How did you feel?"> --> <!-- Not sure if we want to do this, might implement different variation later-->
+            <!-- <small>1 = Worst, 10 = Best</small> -->
+            <button onclick="submitForm('exercise')">Add Exercise</button>
+        </div>
+
+        <!-- Meal Form (Hidden) -->
+        <div id="mealForm" class="meal-form" style="display: none;">                <!-- ADD MEAL TYPE (Breakfast lunch dinner snacks)-->
+            <button class="close-btn" onclick="closeForm()">X</button>
+            <h2>Meal</h2>
+            <input type="text" placeholder="Food Name">
+            <select>
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Dinner">Dinner</option>
+                <option value="Snack">Snack</option>
+            </select>
+            <textarea placeholder="Describe your meal..."></textarea>
+            <input type="number" placeholder="Calories">
+            <button onclick="submitForm('meal')">Add Meal</button>
+        </div>
+
+        <!-- Overlay Background for Forms -->
+        <div id="overlayBackground" class="overlay-background"></div>
+
     </div>
 </body>
 </html>

@@ -31,6 +31,9 @@ html::-webkit-scrollbar{
     margin: 0;
 }
 
+/* Need to write container for h2 */
+/* Need to write container for label */
+
 .content {
     text-align: left;
     flex-grow: 1;
@@ -55,7 +58,7 @@ html::-webkit-scrollbar{
 .image-container {
     display: flex;
     justify-content: space-around;
-    background-color: #F1FFF0; /* Background color for the image section */
+    background-color: #F1FFF0;
     padding: 0 0;
     position: relative;
     margin-top: auto;
@@ -68,7 +71,7 @@ html::-webkit-scrollbar{
 
 /* Image styling */
 .image-item img {
-    width: 70px; /* Change the image size */
+    width: 70px;
     height: auto;
     cursor: pointer;
     position: relative;
@@ -76,10 +79,10 @@ html::-webkit-scrollbar{
 
 .alt-text {
     margin-top: auto;
-    color: black; /* Change the text color */
+    color: black;
     font-size: 14px;
-    font-weight: bold; /* Change the text weight */
-    font-family: 'Arial', sans-serif; /* Change the text font */
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
     margin: 0;
 }
 
@@ -95,13 +98,13 @@ html::-webkit-scrollbar{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.5); /* Change the color/transparency */
+    background-color: rgba(255, 255, 255, 0.5);
     display: none; /* Initially hidden */
     z-index: 1;
 }
 
 .image-item.active .overlay {
-    display: block; /* Show overlay when image  active */
+    display: block; /* Show overlay when image active */
     z-index: 2;
 }
 
@@ -109,4 +112,133 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+/* Stuff for inputting */
+
+/* Plus Button */
+.plus-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #325E2C;
+    color: white;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Overlay container */
+.overlay-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+/* Close button for the overlay (Exercise/Meal options) */
+.close-overlay {
+    position: absolute;
+    top: 10px;
+    left: calc(50% + 300px - 50px + 10px); /* 300px from center - button width + 10px to right */
+    background-color: red;
+    color: white;
+    border: none;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1002; /* Button is above the overlay */
+}
+
+
+/* Overlay items for Exercise and Meal buttons */
+.overlay-item {
+    background-color: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.overlay-item button {
+    background-color: #325E2C;
+    color: white;
+    font-size: 18px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Overlay background for forms */
+.overlay-background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+}
+
+/* Exercise and meal forms */
+.exercise-form, .meal-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1002;
+    max-width: 580px;
+    width: 100%;
+}
+
+
+/* Styling for forms */
+input, select, textarea {
+    margin: 10px 0;
+    padding: 10px;
+    width: 95%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="range"] {
+    width: 90%;
+}
+
+button.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Small text for slider labels */
+small {
+    display: block;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 12px;
 }
