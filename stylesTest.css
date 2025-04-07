@@ -1,0 +1,207 @@
+/* Reset + Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* App Container */
+.app-container {
+    width: 640px;
+    height: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+/* Header */
+.header {
+    background-color: #F48668;
+    color: white;
+    padding: 20px;
+}
+
+.title {
+    text-align: left;
+    margin-left: 20px;
+}
+
+/* Main Content Layout */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    width: 100%;
+}
+
+/* Calendar Layout */
+.calendar-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 640px;
+    margin-bottom: 30px;
+}
+
+.days-of-week {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.week-days {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.day-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    border: none;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.day-circle:hover {
+    background-color: #ddd;
+}
+
+/* Progress Island */
+.progress-island {
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 80%;
+    max-width: 640px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.progress-island h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.progress-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.progress-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.progress-ring {
+    transform: rotate(-90deg);
+    margin-bottom: 10px;
+}
+
+.progress-ring__bg {
+    fill: none;
+    stroke: #e6e6e6;
+    stroke-width: 10;
+}
+
+.progress-ring__circle {
+    fill: none;
+    stroke: #4CAF50;
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke-dasharray: 314;
+    stroke-dashoffset: 181; /* This is ~42.5% progress toward goal */
+}
+
+.calories-info {
+    font-size: 16px;
+    color: #555;
+}
+
+.weekly-report-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 24px;
+    background-color: #a1b7f9;
+    color: #fff9f9;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.weekly-report-button:hover {
+    background-color: #45a049;
+}
+
+.calendar-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+    gap: 8px; /* Adds spacing between columns/buttons */
+}
+
+.calendar-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.day-label {
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.day-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    border: none;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.day-circle:hover {
+    background-color: #ddd;
+}
+
+

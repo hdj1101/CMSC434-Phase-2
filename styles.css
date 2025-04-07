@@ -110,3 +110,8 @@ body {
     flex-direction: column;
     justify-content: space-between;
 }
+
+.profile-box{
+    background: #ebebeb
+    text-align: center;
+}
