@@ -4,33 +4,184 @@
     <title>Tab 1 / Main</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=640, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="exerciseStyle.css">
     <script src="script.js" defer></script>
 </head>
+<header>
+      
+</header>
+        
+
+
+
+ 
+
+
+
+
 <body>
+
     <div class="container">
         <h1>-Exercise-</h1>
+
         <div class="content">
             <!-- Main content of the page here -->
         </div>
 
-        <!-- Main Image Section -->
-        <div class="image-container">
-            <div class="image-item active">
-                <a href="exercise.html">
-                    <img src="icons/db.png" alt="Exercise">
-                    <p class="alt-text">Workout</p>
-                    <div class="overlay"></div>
-                </a>
+    <!--Calendar START-->
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <button id="prevWeek" class="arrow-button">&#60;</button>
+            <div class="calendar-week" id="weekLabel">Week of April 23</div>
+            <button id="nextWeek" class="arrow-button">&#62;</button>
+        </div>
+        <div class="calendar-days">
+            <div class="day" id="sun">23</div>
+            <div class="day" id="mon">24</div>
+            <div class="day" id="tue">25</div>
+            <div class="day selected" id="wed">26</div>
+            <div class="day" id="thu">27</div>
+            <div class="day" id="fri">28</div>
+            <div class="day" id="sat">29</div>
+        </div>
+    </div>
+    <!--Calendar END-->
+
+
+    <!--PUSH DAY SECTION-->
+
+    <div class="push-day-container">
+        <div class="v202_319"></div>
+        <div class="v202_320">
+            <div class="v202_321">
+                <div class="v202_322"></div>
+                <span class="v202_323">3 sets</span>
             </div>
-            <div class="image-item">
+            <div class="v202_324">
+                <div class="v202_325">
+                    <div class="v202_326"></div>
+                    <span class="v202_327">Bench Press</span>
+                </div>
+            </div>
+            <div class="v202_328">
+                <div class="v202_329">
+                    <div class="v202_330"></div>
+                    <span class="v202_331">120 lbs</span>
+                </div>
+            </div>
+        </div>
+        <div class="v202_332">
+            <div class="v202_333">
+                <div class="v202_334"></div>
+                <span class="v202_335">3 sets</span>
+            </div>
+            <div class="v202_336">
+                <div class="v202_337">
+                    <div class="v202_338"></div>
+                    <span class="v202_339">Shoulder Press</span>
+                </div>
+            </div>
+            <div class="v202_340">
+                <div class="v202_341">
+                    <div class="v202_342"></div>
+                    <span class="v202_343">130 lbs</span>
+                </div>
+            </div>
+        </div>
+        <div class="v202_344">
+            <div class="v202_345">
+                <div class="v202_346"></div>
+                <span class="v202_347">2 sets</span>
+            </div>
+            <div class="v202_348">
+                <div class="v202_349">
+                    <div class="v202_350"></div>
+                    <span class="v202_351">Incline Bench</span>
+                </div>
+            </div>
+            <div class="v202_352">
+                <div class="v202_353">
+                    <div class="v202_354"></div>
+                    <span class="v202_355">85 lbs</span>
+                </div>
+            </div>
+        </div>
+        <span class="push-day">Push Day</span>
+        <span class="time">Time</span>
+        <span class="v202_358">20 mins</span>
+        <span class="v202_359">3700 lbs</span>
+        <span class="v202_360">Volume</span>
+        <div class="name"></div>
+        <div class="name"></div>
+        <div class="name"></div>
+    </div>
+
+
+
+
+
+       <!--Progress Ring START-->
+       <div class="progress-container">
+        <div class="progress-ring">
+            <div class="progress-circle">
+                <span class="percentage">85%</span>
+            </div>
+        </div>
+        <p class="cals-left">40 cals left</p>
+    </div>
+        <!--Progress Ring END-->
+
+     <!--Add Goal START-->
+     <div class="goal-container">
+        <h1 class="goal-title">Add Goal</h1>
+        <button class="add-goal-btn">
+            <span class="plus-sign">+</span>
+        </button>
+    </div>
+     <!--Add Goal END-->
+
+     <!--Search exercise START-->
+     <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search exercises" oninput="searchExercises()">
+        </div>
+        <table class="exercise-table" id="exerciseTable">
+            <thead>
+                <tr>
+                    <th>Exercise</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Deadlift</td></tr>
+                <tr><td>Cire</td></tr>
+                <tr><td>Traditional Weight Lifting</td></tr>
+                <tr><td>Running</td></tr>
+                <tr><td>Yoga</td></tr>
+            </tbody>
+        </table>
+    </div>
+     <!--Search exercise END-->
+
+  
+</body>
+
+<footer>
+    <!-- NAVIGATION BAR-->
+       <!-- Main Image Section -->
+       <div class="image-container">
+        <!-- Dashboard Icon -->
+        <div class="image-item">
+            <div class="dashboard-icon">
                 <a href="index.html">
-                    <img src="icons/home.png" alt="LR">
-                    <p class="alt-text">Home</p>
-                    
+                    <img src="icons/dashboard.svg" alt="Dashboard">
+                    <p class="alt-text">dashboard-icon</p>
                 </a>
             </div>
-            <div class="image-item">
+        </div>
+
+        <!-- Nutrition Icon -->
+        <div class="image-item">
+            <div class="nutrition-icon">
                 <a href="nutrition.html">
                     <img src="icons/apple.png" alt="Nutrition">
                     <p class="alt-text">Nutrition</p>
@@ -38,8 +189,34 @@
             </div>
         </div>
 
-        <!-- Plus Button -->
+        <!-- Plus Button in the center -->
         <button class="plus-button" id="plusButton">+</button>
+
+        <!-- Exercise Icon -->
+        <div class="image-item">
+            <div class="exercise-icon">
+                <a href="exercise.html">
+                    <img src="icons/db.png" alt="Exercise">
+                    <p class="alt-text">Workout</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Settings Icon -->
+        <div class="image-item">
+            <div class="settings-icon">
+                <a href="settings.html">
+                    <img src="icons/settings.svg" alt="Settings">
+                    <p class="alt-text">Settings</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!--END OF PUSH DAY SECTION-->
+
 
         <!-- Exercise/Meal options -->
         <div class="overlay-container" id="overlayContainer">
@@ -64,8 +241,28 @@
                 <option value="Running">Running</option>
                 <option value="Sport Practice">Sport Practice</option>
                 <option value="Walking">Walking</option>
-                <option value="Workout">Workout</option>
+                <option value="Strength Training">Strength Training</option>
                 <option value="Yoga">Yoga</option>
+                <option value="Dance">Dance</option>
+                <option value="Pilates">Pilates</option>
+
+
+                <section class="exercise-details">
+                    <h2>Add Exercise to Regimen</h2>
+                    <input type="text" id="exercise-name" placeholder="Exercise Name">
+                    <textarea id="exercise-description" placeholder="Exercise Description"></textarea>
+                    <input type="number" id="sets" placeholder="Sets" min="1">
+                    <input type="number" id="reps" placeholder="Reps per Set" min="1">
+                    <button id="save-exercise-btn">Save Exercise</button>
+                </section>
+
+                <section class="progress-section">
+                    <h2>Your Progress</h2>
+                    <textarea id="progress-notes" placeholder="Add your progress here..."></textarea>
+                    <button id="save-progress-btn">Save Progress</button>
+                </section>
+
+
             </select>
             <textarea placeholder="Describe your exercise..."></textarea>
             <input type="number" placeholder="Duration (minutes)">

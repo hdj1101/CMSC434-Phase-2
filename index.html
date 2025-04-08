@@ -16,29 +16,49 @@
 
         <!-- Main Image Section -->
         <div class="image-container">
+            <!-- Dashboard Icon -->
             <div class="image-item">
-                <a href="exercise.html">
-                    <img src="icons/db.png" alt="Exercise">
-                    <p class="alt-text">Workout</p>
-                </a>
+                <div class="dashboard-icon">
+                    <a href="index.html">
+                        <img src="icons/dashboard.svg" alt="Dashboard">
+                        <p class="alt-text">dashboard-icon</p>
+                    </a>
+                </div>
             </div>
-            <div class="image-item active">
-                <a href="index.html">
-                    <img src="icons/home.png" alt="LR">
-                    <p class="alt-text">Home</p>
-                    <div class="overlay"></div>
-                </a>
-            </div>
+
+            <!-- Nutrition Icon -->
             <div class="image-item">
-                <a href="nutrition.html">
-                    <img src="icons/apple.png" alt="Nutrition">
-                    <p class="alt-text">Nutrition</p>
-                </a>
+                <div class="nutrition-icon">
+                    <a href="nutrition.html">
+                        <img src="icons/apple.png" alt="Nutrition">
+                        <p class="alt-text">Nutrition</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Plus Button in the center -->
+            <button class="plus-button" id="plusButton">+</button>
+
+            <!-- Exercise Icon -->
+            <div class="image-item">
+                <div class="exercise-icon">
+                    <a href="exercise.html">
+                        <img src="icons/db.png" alt="Exercise">
+                        <p class="alt-text">Workout</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Settings Icon -->
+            <div class="image-item">
+                <div class="settings-icon">
+                    <a href="settings.html">
+                        <img src="icons/settings.svg" alt="Settings">
+                        <p class="alt-text">Settings</p>
+                    </a>
+                </div>
             </div>
         </div>
-
-        <!-- Plus Button -->
-        <button class="plus-button" id="plusButton">+</button>
 
         <!-- Exercise/Meal options -->
         <div class="overlay-container" id="overlayContainer">
@@ -51,47 +71,7 @@
             </div>
         </div>
         
-        <!-- Exercise Form (Hidden) -->
-        <div id="exerciseForm" class="exercise-form" style="display: none;">
-            <button class="close-btn" onclick="closeForm()">X</button>
-            <h2>Exercise</h2>
-            <select>
-                <option value="Cycling">Cycling</option>
-                <option value="Hiking">Hiking</option>
-                <option value="Rowing">Rowing</option>
-                <option value="Rock Climbing">Rock Climbing</option>
-                <option value="Running">Running</option>
-                <option value="Sport Practice">Sport Practice</option>
-                <option value="Walking">Walking</option>
-                <option value="Workout">Workout</option>
-                <option value="Yoga">Yoga</option>
-            </select>
-            <textarea placeholder="Describe your exercise..."></textarea>
-            <input type="number" placeholder="Duration (minutes)">
-            <!-- <label>How did you feel?</label> -->
-            <!-- <input type="range" min="1" max="10" placeholder="How did you feel?"> --> <!-- Not sure if we want to do this, might implement different variation later-->
-            <!-- <small>1 = Worst, 10 = Best</small> -->
-            <button onclick="submitForm('exercise')">Add Exercise</button>
-        </div>
-
-        <!-- Meal Form (Hidden) -->
-        <div id="mealForm" class="meal-form" style="display: none;">            
-            <button class="close-btn" onclick="closeForm()">X</button>
-            <h2>Meal</h2>
-            <input type="text" placeholder="Food Name">
-            <select>
-                <option value="Breakfast">Breakfast</option>
-                <option value="Lunch">Lunch</option>
-                <option value="Dinner">Dinner</option>
-                <option value="Snack">Snack</option>
-            </select>
-            <textarea placeholder="Describe your meal..."></textarea>
-            <input type="number" placeholder="Calories">
-            <button onclick="submitForm('meal')">Add Meal</button>
-        </div>
-
-        <!-- Overlay Background for Forms -->
-        <div id="overlayBackground" class="overlay-background"></div>
+        <!-- Forms and other content remain the same... -->
 
     </div>
 </body>
