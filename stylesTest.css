@@ -7,7 +7,9 @@
 
 body, html {
     height: 100%;
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #FFFFFF;
+    color: #323435;
 }
 
 /* App Container */
@@ -19,13 +21,13 @@ body, html {
     flex-direction: column;
     justify-content: flex-start;
     text-align: center;
+    background-color: #F6F7FF;
 }
 
 /* Header */
 .header {
-    background-color: #F48668;
-    color: white;
-    padding: 20px;
+    color: #323435;
+    padding: 40px;
 }
 
 .title {
@@ -39,7 +41,7 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 40px;
+    padding-top: 8px;
     width: 100%;
 }
 
@@ -56,8 +58,8 @@ body, html {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 640px;
-    margin-bottom: 30px;
+    height: 100%;              /* 🔧 Full height of island */
+    justify-content: center;   /* ✅ Vertically center row */
 }
 
 .days-of-week {
@@ -75,12 +77,12 @@ body, html {
 }
 
 .day-circle {
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     background-color: #f0f0f0;
     border: none;
-    font-size: 18px;
+    font-size: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -136,7 +138,7 @@ body, html {
 
 .progress-ring__circle {
     fill: none;
-    stroke: #4CAF50;
+    stroke: #F48668;
     stroke-width: 10;
     stroke-linecap: round;
     stroke-dasharray: 314;
@@ -152,7 +154,7 @@ body, html {
     display: inline-block;
     margin-top: 30px;
     padding: 12px 24px;
-    background-color: #a1b7f9;
+    background-color: #93B3E8;
     color: #fff9f9;
     font-size: 16px;
     font-weight: bold;
@@ -187,12 +189,12 @@ body, html {
 }
 
 .day-circle {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     background-color: #f0f0f0;
     border: none;
-    font-size: 16px;
+    font-size: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -202,6 +204,66 @@ body, html {
 
 .day-circle:hover {
     background-color: #ddd;
+}
+
+.progress-container-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 24px;
+    text-align: left;
+}
+
+.progress-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.step-info {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+.progress-right {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stat-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.stat-label {
+    font-size: 16px;
+    color: #555;
+}
+
+.calendar-island {
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    padding: 16px 12px;
+    margin-bottom: 15px;
+    width: 90%;
+    max-width: 640px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;       /* ✅ Vertically center buttons */
+    height: 100px;  
 }
 
 
