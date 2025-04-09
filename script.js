@@ -39,3 +39,64 @@ function submitForm(type) {
     }
     window.location.reload();
 }
+
+// Stuff for nutrition
+
+// Function to calculate section angles based on values
+function calculateSectionAngles() {
+    const sections = document.querySelectorAll('.section');
+    let total = 0;
+    sections.forEach(section => {
+        total += parseInt(section.getAttribute('data-value'));
+    });
+    
+    let startAngle = 0;
+    sections.forEach(section => {
+        const value = parseInt(section.getAttribute('data-value'));
+        const percentage = value / total;
+        const angle = 360 * percentage;
+        section.style.transform = `rotate(${startAngle}deg)`;
+        section.style.clipPath = `polygon(50% 50%, 100% 0, 100% 100%, 0% 100%, 0% 0)`;
+        section.style.transformOrigin = 'center center';
+        section.style.transition = 'transform 0.3s ease';
+        startAngle += angle;
+    });
+}
+
+// Show value on hover
+function showValue(event) {
+    const value = event.target.getAttribute('data-value');
+    const sectionValue = document.getElementById('sectionValue');
+    sectionValue.innerText = value;
+    sectionValue.style.display = 'block';
+    sectionValue.style.top = event.clientY + 'px';  // Position overlay above section
+    sectionValue.style.left = event.clientX + 'px';  // Adjust position to the mouse
+}
+
+// Hide value on mouse out
+function hideValue() {
+    const sectionValue = document.getElementById('sectionValue');
+    sectionValue.style.display = 'none';
+}
+
+// Call the function to set up angles when the page loads
+window.onload = function() {
+    calculateSectionAngles();
+};
+
+// Show Meal Details in Overlay
+function showMealDetails(name, calories, fat, cholesterol, sodium, protein) {
+    document.getElementById("mealName").innerText = name;
+    document.getElementById("mealCalories").innerText = calories + " cal";
+    document.getElementById("mealFat").innerText = fat;
+    document.getElementById("mealCholesterol").innerText = cholesterol;
+    document.getElementById("mealSodium").innerText = sodium;
+    document.getElementById("mealProtein").innerText = protein;
+    
+    document.getElementById("mealOverlay").style.display = 'flex';
+}
+
+// Close Meal Details Overlay
+function closeMealOverlay() {
+    document.getElementById("mealOverlay").style.display = 'none';
+}

@@ -5,13 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=640, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stylesNutrition.css">
     <script src="script.js" defer></script>
+    <script src="scriptNutrition.js" defer></script>
 </head>
 <body>
     <div class="container">
         <h1>-Nutrition-</h1>
         <div class="content">
             <!-- Main content of the page here -->
+        </div>
+
+        <div class="date-text" id="date-text"></div>
+
+        <div class="circle-container">
+            <div class="circle meals"></div>
+            <div class="circle goal">
+                <div class="goal-text" id="goal-text">
+                    <!-- Text updates dynamically -->
+                </div>
+            </div>
+            <div class="circle progress" id="progress-circle"></div>
+        </div>
+
+        <div class="circle-overlay-box" id="overlay-box"> </div>
+
+        <div class="main-box">
+            <h2>Recent Meals</h2>
+            <div class="meal-grid">
+                <div class="meal-box" onclick="showMealDetails('Water Crackers', 60, '1g', '0mg', '85mg', '1g')">
+                    <p>Water Crackers</p>
+                    <p>60 cal</p>
+                </div>
+                <div class="meal-box" onclick="showMealDetails('Chicken Salad', 350, '20g', '50mg', '400mg', '30g')">
+                    <p>Chicken Salad</p>
+                    <p>350 cal</p>
+                </div>
+                <div class="meal-box" onclick="showMealDetails('Fruit Bowl', 200, '0g', '0mg', '10mg', '5g')">
+                    <p>Fruit Bowl</p>
+                    <p>200 cal</p>
+                </div>
+                <div class="meal-box" onclick="showMealDetails('Oatmeal', 250, '5g', '0mg', '150mg', '8g')">
+                    <p>Oatmeal</p>
+                    <p>250 cal</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Meal Details Overlay -->
+        <div id="mealOverlay" class="meal-overlay">
+            <div class="meal-details">
+                <button class="close-btn" onclick="closeMealOverlay()">X</button>
+                <h2 id="mealName">Meal Name</h2>
+                <p><strong>Calories:</strong> <span id="mealCalories"></span></p>
+                <p><strong>Total Fat:</strong> <span id="mealFat"></span></p>
+                <p><strong>Cholesterol:</strong> <span id="mealCholesterol"></span></p>
+                <p><strong>Sodium:</strong> <span id="mealSodium"></span></p>
+                <p><strong>Protein:</strong> <span id="mealProtein"></span></p>
+            </div>
         </div>
 
         <!-- Main Image Section -->
@@ -75,7 +126,7 @@
         </div>
 
         <!-- Meal Form (Hidden) -->
-        <div id="mealForm" class="meal-form" style="display: none;">                <!-- ADD MEAL TYPE (Breakfast lunch dinner snacks)-->
+        <div id="mealForm" class="meal-form" style="display: none;">                
             <button class="close-btn" onclick="closeForm()">X</button>
             <h2>Meal</h2>
             <input type="text" placeholder="Food Name">

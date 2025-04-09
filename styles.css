@@ -1,11 +1,20 @@
 html, body {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #FFFFFF;
+
     height: 100%;
     margin: 0;
     padding: 0;
     width: 100%;
     overflow: hidden;
     scrollbar-width: auto;
-    /*scrollbar-color: #777 #2b2727;*/
+
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    color: #333;
 }
 
 html::-webkit-scrollbar{
@@ -25,9 +34,9 @@ html::-webkit-scrollbar{
 
 .container h1 {
     text-align: center;
-    color: #325E2C;
-    font-size: 36px;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    color: #333;
     margin: 0;
 }
 
@@ -47,7 +56,7 @@ html::-webkit-scrollbar{
     width: 640px;
     height: 100%;
     max-height: 960px;
-    background-color: #DBE8D9;
+    background-color: #F6F7FF;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -58,7 +67,7 @@ html::-webkit-scrollbar{
 .image-container {
     display: flex;
     justify-content: space-around;
-    background-color: #F1FFF0;
+    background-color: #ABB9CE;
     padding: 0 0;
     position: relative;
     margin-top: auto;
@@ -121,7 +130,7 @@ body {
     position: absolute;
     top: 10px;
     left: 10px;
-    background-color: #325E2C;
+    background-color: #88A7DA;
     color: white;
     font-size: 24px;
     width: 50px;
@@ -233,6 +242,8 @@ button.close-btn {
     border: none;
     font-size: 16px;
     cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 /* Small text for slider labels */
@@ -242,3 +253,4 @@ small {
     text-align: center;
     font-size: 12px;
 }
+
