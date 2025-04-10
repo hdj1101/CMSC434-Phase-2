@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=640, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="styles.css" />
+  <title>Settings</title>
+</head>
+<style>
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    scrollbar-width: auto;
+}
+
+.container {
+    width: 640px;
+    height: 100%;
+    max-height: 960px;
+    background-color: #DBE8D9;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+}
+
+h1, h2 {
+  color: #325E2C;
+  text-align: center;
+}
+
+.user-info-section, .change-password-section, .notifications-section, .help-privacy-section, .log-out-section {
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #325E2C;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2b4f29;
+}
+
+a {
+  text-decoration: none;
+  color: #325E2C;
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+}
+
+#log-out-btn {
+  background-color: #db5d5d;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 40px;
+}
+
+#log-out-btn:hover {
+  background-color: #c24949;
+}
+
+#change-password-form {
+  display: none;
+  margin-top: 20px;
+}
+
+#change-password-form.hidden {
+  display: none;
+}
+
+#change-password-btn {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  cursor: pointer;
+}
+
+#change-password-btn:hover {
+  background-color: #45a049;
+}
+
+.help-privacy-section a {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 16px;
+  background-color: #f1fff0;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: #325E2C;
+}
+
+.help-privacy-section a:hover {
+  background-color: #dbe8d9;
+}
+</style>
+<body>
+  <div class="container">
+    <h1>Settings</h1>
+
+    <!-- Back to Profile -->
+    <a href="profile.html">← Back to Profile</a>
+
+    <!-- User Information Section -->
+    <div class="user-info-section">
+      <h2>Account Information</h2>
+      <p><strong>Name:</strong> Testudo Terrapin</p>
+      <p><strong>Email:</strong> testudo@terpmail.umd.edu </p>
+      <a href="edit-profile.html">Edit Profile</a>
+    </div>
+
+    <!-- Change Password Section -->
+    <div class="change-password-section">
+      <button id="change-password-btn">Change Password</button>
+      <div id="change-password-form" class="hidden">
+        <h2>Change Password</h2>
+        <form action="#" method="POST">
+          <label for="old-password">Old Password</label>
+          <input type="password" id="old-password" name="old-password" required />
+
+          <label for="new-password">New Password</label>
+          <input type="password" id="new-password" name="new-password" required />
+
+          <label for="confirm-password">Confirm New Password</label>
+          <input type="password" id="confirm-password" name="confirm-password" required />
+
+          <button type="submit">Change Password</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Notification Preferences Section -->
+    <div class="notifications-section">
+      <h2>Notification Preferences</h2>
+      <form action="#" method="POST">
+        <div class="notifications-container">
+          <div class="notification-option">
+            <label for="email-notifications">Email Notifications</label>
+            <input type="checkbox" id="email-notifications" name="email-notifications" checked />
+          </div>
+    
+          <div class="notification-option">
+            <label for="sms-notifications">SMS Notifications</label>
+            <input type="checkbox" id="sms-notifications" name="sms-notifications" />
+          </div>
+        </div>
+        <button type="submit">Save Preferences</button>
+      </form>
+    </div>
+
+    <!-- Help and Privacy Center Section -->
+    <div class="help-privacy-section">
+      <h2>Support</h2>
+      <a href="help.html">Help Center</a>
+      <a href="privacy.html">Privacy Center</a>
+    </div>
+
+    <!-- Log Out Section -->
+    <div class="log-out-section">
+      <button id="log-out-btn">Log Out</button>
+    </div>
+
+  </div>
+
+  <script>
+    // Functional Log Out
+    document.getElementById('log-out-btn').addEventListener('click', function() {
+      alert("See you again soon!");
+      window.location.href = 'index.html'; // Redirect to homepage or login page
+    });
+
+    // Toggle Change Password Form
+    document.getElementById('change-password-btn').addEventListener('click', function() {
+      const form = document.getElementById('change-password-form');
+      form.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

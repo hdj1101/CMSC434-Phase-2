@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=640, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="styles.css" />
+  <title>Your Goals</title>
+  <style>
+    details {
+      margin-bottom: 20px;
+      background-color: #F1FFF0;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    summary {
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 15px 20px;
+      color: #325E2C;
+      list-style: none;
+    }
+
+    details[open] summary {
+      border-bottom: 1px solid #ccc;
+    }
+
+    details > div {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .centered {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Your Goals</h1>
+    <p class="centered">Set and track your health and fitness goals.</p>
+
+    <a href="profile.html">← Back to Profile</a>
+
+    <form id="goalsForm">
+
+      <details>
+        <summary>Weight Goals ⚖️</summary>
+        <div>
+          <label>
+            Target Weight:
+            <input type="number" name="targetWeight" />
+            <select id="weightUnit">
+              <option value="lbs">lbs</option>
+              <option value="kg">kg</option>
+            </select>
+          </label>
+
+          <label>Weekly Weight Loss Goal (lbs):
+            <input type="number" name="weeklyLoss" step="0.1" />
+          </label>
+        </div>
+      </details>
+
+      <details>
+        <summary>Activity Goals 🏃</summary>
+        <div>
+          <label>Exercise Minutes/Day:
+            <input type="number" name="exerciseMinutes" />
+          </label>
+
+          <label>Daily Steps Goal:
+            <input type="number" name="stepsGoal" />
+          </label>
+        </div>
+      </details>
+
+      <details>
+        <summary>Nutrition Goals 🥗</summary>
+        <div>
+          <label>Daily Calories:
+            <input type="number" name="caloriesGoal" />
+          </label>
+
+          <label>Protein (g):
+            <input type="number" name="proteinGoal" />
+          </label>
+
+          <label>Carbs (g):
+            <input type="number" name="carbsGoal" />
+          </label>
+
+          <label>Fats (g):
+            <input type="number" name="fatsGoal" />
+          </label>
+        </div>
+      </details>
+
+      <details>
+        <summary>Streak Tracker 🔥</summary>
+        <div class="streak-section">
+          <p>You’ve logged your goals for <strong id="streakCount">5</strong> days in a row!</p>
+        </div>
+      </details>
+
+      <button type="submit">Save Goals</button>
+    </form>
+  </div>
+
+  <script>
+    const defaultGoals = {
+      targetWeight: 160,
+      weeklyLoss: 1.5,
+      exerciseMinutes: 30,
+      stepsGoal: 10000,
+      caloriesGoal: 2000,
+      proteinGoal: 150,
+      carbsGoal: 200,
+      fatsGoal: 70,
+      weightUnit: "lbs"
+    };
+
+    function loadGoals() {
+      const saved = JSON.parse(localStorage.getItem("userGoals")) || defaultGoals;
+      for (const key in defaultGoals) {
+        if (document.forms["goalsForm"][key]) {
+          document.forms["goalsForm"][key].value = saved[key];
+        }
+      }
+      document.getElementById("weightUnit").value = saved.weightUnit || "lbs";
+    }
+
+    function saveGoals(event) {
+      event.preventDefault();
+      const form = document.forms["goalsForm"];
+      const updatedGoals = {};
+      for (const key in defaultGoals) {
+        if (key === "weightUnit") continue;
+        updatedGoals[key] = Number(form[key].value);
+      }
+      updatedGoals.weightUnit = document.getElementById("weightUnit").value;
+      localStorage.setItem("userGoals", JSON.stringify(updatedGoals));
+      alert("Goals saved!");
+    }
+
+    document.getElementById("goalsForm").addEventListener("submit", saveGoals);
+    window.addEventListener("load", loadGoals);
+  </script>
+</body>
+</html>
