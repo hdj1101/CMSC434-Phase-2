@@ -10,9 +10,9 @@ html, body {
     scrollbar-width: auto;
 }
 h1 {
-    position: absolute;
-    top: 10px;
-    left: 25px;
+    position: relative;
+    top: -8rem;
+    left: 1.563rem;
     font-size: 48;
 }
 
@@ -188,12 +188,12 @@ small {
     display: flex;
     justify-content: space-between; /* Space sections evenly */
     width: 100%; /* Ensure it takes up full available width */
-    max-width: 420px; /* Max width for the whole container */
+    max-width: 26.25rem; /* Max width for the whole container */
     margin: 0 auto; /* Center the container horizontally */
-    padding: 10px;
-    margin-left: 180px; /* Move the container 40px to the right */
+    padding: 0.625rem;
+    margin-left: 11.25rem; /* Move the container 40px to the right */
     position: relative;
-    top: -100px; /* Move the container 40px up */
+    top: -7rem;
 
 }
 
@@ -249,8 +249,8 @@ small {
 
 .progress-container {
     position: absolute;
-    top: 150px;
-    left: 25px;
+    top: 10.375rem;
+    left: 1.563rem;
 
     text-align: center;
 }
@@ -349,12 +349,12 @@ small {
 
 .goal-container {
     position: absolute;
-    top: 380px;
-    left: 40px;
+    top: 23.75rem;
+    left: 9.5rem;
     text-align: center;
     background-color: rgba(215, 223, 235, 0.46);
-    padding: 10px;
-    border-radius: 10px;
+    padding: .625rem;
+    border-radius: .625rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -392,7 +392,20 @@ small {
 
 
 .add-workout-container {
-    position: absolute;
+  position: absolute;
+  top: 23.75rem;
+  left: 20.5rem;
+  text-align: center;
+  background-color: rgba(215, 223, 235, 0.46);
+  padding: .625rem;
+  border-radius: .625rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+    /* position: absolute;
     top: 380px;
     left: 400px;
     text-align: center;
@@ -402,7 +415,7 @@ small {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 .workout-title {
   position: absolute;
@@ -625,9 +638,9 @@ button[type="submit"]:hover {
   display: flex;
   justify-content: center;
   width: 90%; 
-  margin-bottom: 30px;
+  margin-bottom: 1rem;
   position: absolute;
-  top : 70px;
+  top : 6.375rem;
 
 }
 
@@ -730,6 +743,9 @@ button[type="submit"]:hover {
 
 /* Workout Container */
 .workout-container {
+  position: relative;
+  top: 0rem;
+  left: 0rem;
   display: flex;
   justify-content: space-between;
   padding: 20px;
@@ -815,6 +831,9 @@ button[type="submit"]:hover {
 
 
 .new {
+  position: relative;
+  left: 0rem;
+  top: 1rem;
   margin-left: 40px; /* Adjust this value as needed */
 }
 
