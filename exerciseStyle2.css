@@ -11,22 +11,21 @@ html, body {
 }
 
 h1 {
-    position: absolute;
-    top: 2rem;
-    left: 1.5rem;
-    font-size: 3rem; /* Adjust font size for responsiveness */
+    position: relative;
+    top: -5.063rem; /* -8rem in px to rem */
+    left: 1.563rem;
+    font-size: 3.024rem; /* 48px to rem */
 }
 
 html::-webkit-scrollbar {
-    width: 10px;
+    width: 0.625rem; /* 10px to rem */
 }
 
 /* Container to center content */
 .container {
-    width: 90%; /* Use relative width for responsiveness */
-    max-width: 640px;
+    width: 40rem; /* 640px to rem */
     height: 100%;
-    max-height: 960px;
+    max-height: 60.75rem; /* 960px to rem */
     background-color: #F6F7FF;
     margin: 0 auto;
     display: flex;
@@ -38,9 +37,9 @@ html::-webkit-scrollbar {
 /* Image container to hold icons */
 .image-container {
     display: flex;
-    justify-content: space-evenly; /* Space icons evenly */
+    justify-content: space-between; /* Space icons evenly */
     background-color: #B8C5DC; /* nav bar */
-    padding: 0 1rem;
+    padding: 0 0;
     position: relative;
     margin-top: auto;
 }
@@ -53,7 +52,7 @@ html::-webkit-scrollbar {
 
 /* Image icon styling */
 .image-item img {
-    width: 7rem;
+    width: 4.375rem; /* 70px to rem */
     height: auto;
     cursor: pointer;
     position: relative;
@@ -63,7 +62,7 @@ html::-webkit-scrollbar {
 .alt-text {
     margin-top: auto;
     color: black;
-    font-size: 0.875rem; /* Smaller font for responsiveness */
+    font-size: 0.875rem; /* 14px to rem */
     font-weight: bold;
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -78,16 +77,16 @@ html::-webkit-scrollbar {
 /* Plus Button */
 .plus-button {
     position: relative;
-    top: 30%;
+    top: 1.875rem; /* 30% of 6.25rem */
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #93B3E8;
     color: #323435;
-    font-size: 1.5rem;
-    width: 6rem;
-    height: 6rem;
+    font-size: 1.5rem; /* 24px to rem */
+    width: 6.25rem; /* 100px to rem */
+    height: 6.25rem; /* 100px to rem */
     border-radius: 50%;
-    border: solid #323435 4pt;
+    border: solid #323435 0.25rem; /* 4pt to rem */
     cursor: pointer;
     z-index: 1000;
 }
@@ -100,37 +99,126 @@ html::-webkit-scrollbar {
     position: relative;
 }
 
-/* Flex layout for push day */
+/* Overlay container (existing styles) */
+.overlay-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+/* Close button for the overlay */
+.close-overlay {
+    position: absolute;
+    top: 0.625rem; /* 10px to rem */
+    left: calc(50% + 18.75rem - 3.125rem + 0.625rem); /* Positioning the close button */
+    background-color: red;
+    color: white;
+    border: none;
+    font-size: 1.5rem; /* 24px to rem */
+    width: 3.125rem; /* 50px to rem */
+    height: 3.125rem; /* 50px to rem */
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0.625rem; /* 10px to rem */
+    z-index: 1002;
+}
+
+/* Form and overlay background styles remain unchanged */
+/* Exercise and meal forms */
+.exercise-form, .meal-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1.25rem; /* 20px to rem */
+    border-radius: 0.625rem; /* 10px to rem */
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2); /* 10px to rem */
+    z-index: 1002;
+    max-width: 36.5rem; /* 580px to rem */
+    width: 100%;
+}
+
+/* Styling for forms */
+input, select, textarea {
+    margin: 0.625rem 0; /* 10px to rem */
+    padding: 0.625rem; /* 10px to rem */
+    width: 95%;
+    border: 1px solid #ccc;
+    border-radius: 0.313rem; /* 5px to rem */
+}
+
+input[type="range"] {
+    width: 90%;
+}
+
+button.close-btn {
+    position: absolute;
+    top: 0.625rem; /* 10px to rem */
+    right: 0.625rem; /* 10px to rem */
+    background-color: red;
+    color: white;
+    border: none;
+    font-size: 1rem; /* 16px to rem */
+    cursor: pointer;
+}
+
+/* Small text for slider labels */
+small {
+    display: block;
+    margin-top: 0.313rem; /* 5px to rem */
+    text-align: center;
+    font-size: 0.75rem; /* 12px to rem */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 0.875rem; /* 14px to rem */
+}
+
 .push-day-container {
     display: flex;
-    justify-content: space-between; 
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 1rem;
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: space-between; /* Space sections evenly */
+    width: 100%; /* Ensure it takes up full available width */
+    max-width: 26.25rem; /* 420px to rem */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 0.625rem; /* 10px to rem */
+    margin-left: 11.25rem; /* 180px to rem */
     position: relative;
-    top: -10%;
+    top: -7rem;
 }
 
 .push-day-section {
-    width: 30%; /* Flexible width for each section */
-    min-width: 130px;
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 8.125rem; /* 130px to rem */
+    height: 0; /* Section height defined later */
+    background-color: #f0f0f0; /* Light background for sections */
+    border-radius: 0.625rem; /* 10px to rem */
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1); /* 4px 10px to rem */
+    padding: 0.625rem; /* 10px to rem */
+    text-align: center; /* Center the content inside */
     display: flex;
+    position: relative;
+    top: 1.875rem; /* 30px to rem */
+    left: 0;
     flex-direction: column;
-    justify-content: center;
-    margin-bottom: 1rem;
+    justify-content: space-evenly; /* Evenly space out the content */
 }
 
 .push-day-section h2 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    color: #323435;
+    font-size: 1.25rem; /* 20px to rem */
+    margin-bottom: 0.625rem; /* 10px to rem */
+    color: #323435; /* Dark color for text */
 }
 
 .section-content {
@@ -138,28 +226,172 @@ html::-webkit-scrollbar {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
-    top: -10px;
+    position: relative; /* Ensure top works */
+    top: -0.625rem; /* Move the section content 10px up */
 }
 
 .icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 1.875rem; /* 30px to rem */
+    margin-bottom: 0.625rem; /* 10px to rem */
 }
 
 .count {
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* 40px to rem */
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin-bottom: 0.625rem; /* 10px to rem */
 }
 
 .label {
-    font-size: 0.875rem;
-    color: #555;
+    font-size: 0.875rem; /* 14px to rem */
+    color: #555; /* Lighter color for the label */
 }
 
-/* Goal Modal (Pop-Up Window) Styles */
-.goal-modal {
+/* Progress Container */
+.progress-container {
+    position: relative;
+    top: 9.375rem; /* 150px to rem */
+    left: 1.563rem; /* 25px to rem */
+    text-align: center;
+}
+
+/* Progress Rings */
+.progress-ring {
+    width: 9.375rem; /* 150px to rem */
+    height: 9.375rem; /* 150px to rem */
+    background: conic-gradient(#D4392B 85%, #f0f0f0 85%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-ring-23, .progress-ring-24, .progress-ring-25, .progress-ring-27, .progress-ring-28, .progress-ring-29 {
+    width: 9.375rem; /* 150px to rem */
+    height: 9.375rem; /* 150px to rem */
+    background: conic-gradient(#D4392B 95%, #f0f0f0 85%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#percentage {
+    font-size: 1.125rem; /* 18px to rem */
+    font-weight: bold;
+    color: #323435;
+}
+
+.progress-circle {
+    position: absolute;
+    width: 7.5rem; /* 120px to rem */
+    height: 7.5rem; /* 120px to rem */
+    background-color: #F6F7FF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.percentage {
+    font-size: 1.25rem; /* 20px to rem */
+    font-weight: bold;
+    color: #323435;
+}
+
+.cals-left {
+    margin-top: 0.625rem; /* 10px to rem */
+    font-size: 1rem; /* 16px to rem */
+    color: #323435;
+}
+
+.goal-container {
+    position: relative;
+    top: 23.75rem; /* 380px to rem */
+    left: 9.5rem; /* 150px to rem */
+    text-align: center;
+    background-color: rgba(215, 223, 235, 0.46);
+    padding: 0.625rem; /* 10px to rem */
+    border-radius: 0.625rem; /* 10px to rem */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.goal-title {
+    position: absolute;
+    top: 0;
+    left: 90px;
+    font-size: 1.5rem; /* 24px to rem */
+    font-weight: bold;
+    color: #323435;
+    margin-bottom: 1.25rem; /* 20px to rem */
+}
+
+.add-goal-btn {
+    width: 3.75rem; /* 60px to rem */
+    height: 3.75rem; /* 60px to rem */
+    background-color: #93B3E8;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); /* 2px 4px to rem */
+}
+
+.add-goal-btn .plus-sign {
+    font-size: 2.25rem; /* 36px to rem */
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Workout Container */
+.workout-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.25rem; /* 20px to rem */
+    max-width: 56.25rem; /* 900px to rem */
+    margin: 0 auto;
+}
+
+.workout-box {
+    width: 30%;
+    background-color: #f0f0f0;
+    border-radius: 0.625rem; /* 10px to rem */
+    padding: 1.25rem; /* 20px to rem */
+    text-align: center;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* 4px 8px to rem */
+}
+
+.workout-box h3 {
+    font-size: 1.5rem; /* 24px to rem */
+    margin-bottom: 0.625rem; /* 10px to rem */
+}
+
+.learn-more-btn {
+    background-color: #93B3E8;
+    color: white;
+    font-size: 0.875rem; /* 14px to rem */
+    padding: 0.625rem 1.25rem; /* 10px 20px to rem */
+    border: none;
+    border-radius: 0.313rem; /* 5px to rem */
+    cursor: pointer;
+    text-align: center;
+}
+
+.learn-more-btn:hover {
+    background-color: #7a9cb6;
+}
+
+
+.learn-more-btn:hover {
+    background-color: #7a9cb6;
+  }
+  
+  /* Popup Modal */
+  .popup {
     display: none;
     position: fixed;
     top: 0;
@@ -170,54 +402,95 @@ html::-webkit-scrollbar {
     justify-content: center;
     align-items: center;
     z-index: 1000;
-}
-
-.goal-modal-content {
+  }
+  
+  .popup-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .popup-content h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .popup-content p,
+  .popup-content ul {
+    font-size: 16px;
+  }
+  
+  .popup-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  
+  .new {
+    position: relative;
+    left: 0rem;
+    top: 1rem;
+    margin-left: 40px; /* Adjust this value as needed */
+  }
+  
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    width: 90%;
+    width: 60%;
     max-width: 600px;
     text-align: center;
-}
-
-/* Modal close button */
-.close-btn {
-    font-size: 1.5rem;
+  }
+  
+  .close-btn {
+    font-size: 24px;
     cursor: pointer;
     color: #000;
     position: absolute;
     top: 10px;
     right: 10px;
-}
-
-button[type="submit"] {
-    background-color: #93B3E8;
-    color: white;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-button[type="submit"]:hover {
-    background-color: #7a9cb6;
-}
-
-/* Search box */
-.search-container {
-    width: 80%;
-    max-width: 600px;
-    margin: 20px;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-/* Flex container for responsive design */
-.workout-summary-container {
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
+  .workout-summary-container {
     width: 100%;
     max-width: 600px;
     margin-left: auto;
@@ -227,85 +500,100 @@ button[type="submit"]:hover {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     position: relative;
-    top: 0; /* Reset top positioning */
-}
-
-/* Mobile-friendly font size for h2 */
-h2 {
-    font-size: 1.5rem;
-}
-
-/* Flex container for workout summary sections */
-.workout-summary {
+    top: -60px; /* Move the container down by 50px */
+    /* left: px; */
+  }
+  
+  h2 {
+    text-align: center;
+    color: #323435;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+  }
+  
+  .workout-summary {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-}
-
-/* Responsive Grid for Summary Sections */
-.exercises-done, .duration-calories, .summary-notes {
-    width: 48%;
+    gap: 5px;
+  }
+  
+  
+  
+  
+  
+  .exercises-done {
+    width: 48%; /* Makes both sections 48% of the width of the parent container */
     background-color: #ffffff;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Flex for notes and progress */
-.duration-notes-container {
+    position: relative;
+    left: 220pt;
+  }
+  
+  h3 {
+    color: #323435;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .exercise {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
-}
-
-.duration-calories, .summary-notes {
-    width: 48%;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .exercise span {
+    font-weight: bold;
+  }
+  
+  .duration-calories div, .summary-notes p {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .progress-tracker {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    height: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .progress {
+    background-color: #3498db;
+    height: 100%;
+    text-align: center;
+    color: white;
+    line-height: 20px;
+    border-radius: 20px;
+  }
+  
+  .summary-notes {
+    font-style: italic;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* Flex container for duration/calories and summary notes */
+  .duration-notes-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Add some space between the two boxes */
+  }
+  
+  .duration-calories, .summary-notes {
+    width: 48%; /* Makes both sections 48% of the width of the parent container */
     background-color: #ffffff;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Media Queries for Mobile */
-@media (max-width: 768px) {
-    .push-day-container {
-        flex-direction: column; /* Stack sections vertically */
-        top: 0;
-        padding: 1rem;
-    }
-
-    .push-day-section {
-        width: 100%; /* Full width for mobile */
-        margin-bottom: 1rem;
-    }
-
-    .search-container {
-        width: 90%; /* Make search container responsive */
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2rem;
-    }
-
-    .push-day-section h2 {
-        font-size: 1rem;
-    }
-
-    .push-day-container {
-        padding: 0.5rem;
-    }
-
-    .push-day-section {
-        padding: 0.5rem;
-    }
-
-    .icon {
-        font-size: 1.5rem;
-    }
-
-    .count {
-        font-size: 2rem;
-    }
-}
+  }
+  

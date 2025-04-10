@@ -10,8 +10,8 @@ html, body {
     scrollbar-width: auto;
 }
 h1 {
-    position: relative;
-    top: -8rem;
+    position: absolute;
+    top: 0rem;
     left: 1.563rem;
     font-size: 48;
 }
@@ -75,7 +75,7 @@ html::-webkit-scrollbar {
 
 /* Plus Button */
 .plus-button {
-    position: relative;
+    position: absolute;
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -192,8 +192,8 @@ small {
     margin: 0 auto; /* Center the container horizontally */
     padding: 0.625rem;
     margin-left: 11.25rem; /* Move the container 40px to the right */
-    position: relative;
-    top: -7rem;
+    position: absolute;
+    top: 7.5rem;
 
 }
 
@@ -363,8 +363,8 @@ small {
 
 .goal-title {
   position: absolute;
-  top: 0px;
-  left: 90px;
+  top: 0ren;
+  left: 5.625rem;
     font-size: 24px;
     font-weight: bold;
     color: #323435;
@@ -578,22 +578,6 @@ button[type="submit"]:hover {
 }
 
 
-/* .calendar-container {
-    position: absolute;
-    top: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    width: 600px;
-}
-
-.calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-*/
 .cal-arrow-button {
     font-size: 24px;
     background-color: transparent;
@@ -601,35 +585,6 @@ button[type="submit"]:hover {
     cursor: pointer;
     color: #323435;
 }
-/*
-.calendar-days {
-    display: flex; 
-    justify-content: space-between; 
-    font-size: 18px;
-    gap: 1px; 
-}
-
-.day {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 20px;
-    border: solid black 1pt;
-
-}
-
-.day.selected {
-    background-color: #ff6b6b;
-    color: white;
-}
-
-.day:hover {
-    background-color: #ddd;
-} */
 
 /* Calendar Layout */
 .calendar-container {
