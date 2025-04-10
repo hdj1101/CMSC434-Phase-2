@@ -75,8 +75,8 @@ html::-webkit-scrollbar {
 
 /* Plus Button */
 .plus-button {
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #93B3E8;
@@ -193,7 +193,7 @@ small {
     padding: 10px;
     margin-left: 180px; /* Move the container 40px to the right */
     position: relative;
-    top: -30px; /* Move the container 40px up */
+    top: -100px; /* Move the container 40px up */
 
 }
 
@@ -349,7 +349,7 @@ small {
 
 .goal-container {
     position: absolute;
-    top: 350px;
+    top: 380px;
     left: 40px;
     text-align: center;
     background-color: rgba(215, 223, 235, 0.46);
@@ -391,6 +391,47 @@ small {
 }
 
 
+.add-workout-container {
+    position: absolute;
+    top: 380px;
+    left: 400px;
+    text-align: center;
+    background-color: rgba(215, 223, 235, 0.46);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.workout-title {
+  position: absolute;
+  top: 0px;
+  left: 90px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #323435;
+    margin-bottom: 20px;
+}
+
+.add-workout-btn {
+    width: 60px;
+    height: 60px;
+    background-color: #93B3E8;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-workout-btn .plus-sign {
+    font-size: 36px;
+    color: #fff;
+    font-weight: bold;
+}
 
 /* Goal Modal (Pop-Up Window) Styles */
 .goal-modal {
@@ -650,4 +691,281 @@ button[type="submit"]:hover {
 
 .arrow-button[type="submit"]:hover {
   background-color: #7a9cb6;
+}
+
+
+
+.workout-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.workout-form input,
+.workout-form select,
+.workout-form textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.workout-form button {
+  background-color: #93B3E8;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.workout-form button:hover {
+  background-color: #7a9cb6;
+}
+
+
+
+
+/* Workout Container */
+.workout-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.workout-box {
+  width: 30%;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.workout-box h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.learn-more-btn {
+  background-color: #93B3E8;
+  color: white;
+  font-size: 14px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.learn-more-btn:hover {
+  background-color: #7a9cb6;
+}
+
+/* Popup Modal */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.popup-content h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.popup-content p,
+.popup-content ul {
+  font-size: 16px;
+}
+
+.popup-content ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+.new {
+  margin-left: 40px; /* Adjust this value as needed */
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 60%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.close-btn {
+  font-size: 24px;
+  cursor: pointer;
+  color: #000;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+.workout-summary-container {
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: -60px; /* Move the container down by 50px */
+  /* left: px; */
+}
+
+h2 {
+  text-align: center;
+  color: #323435;
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.workout-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+
+
+
+
+.exercises-done {
+  width: 48%; /* Makes both sections 48% of the width of the parent container */
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  left: 220pt;
+}
+
+h3 {
+  color: #323435;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.exercise {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.exercise span {
+  font-weight: bold;
+}
+
+.duration-calories div, .summary-notes p {
+  font-size: 16px;
+  color: #555;
+}
+
+.progress-tracker {
+  display: flex;
+  flex-direction: column;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 20px;
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+.progress {
+  background-color: #3498db;
+  height: 100%;
+  text-align: center;
+  color: white;
+  line-height: 20px;
+  border-radius: 20px;
+}
+
+.summary-notes {
+  font-style: italic;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Flex container for duration/calories and summary notes */
+.duration-notes-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Add some space between the two boxes */
+}
+
+.duration-calories, .summary-notes {
+  width: 48%; /* Makes both sections 48% of the width of the parent container */
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

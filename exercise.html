@@ -40,16 +40,16 @@
 
 
     <!--PUSH DAY SECTION-->
-    <<div class="push-day-container">
-        <div class="push-day-section">
+    <div class="push-day-container">
+        <div class="push-day-section" onclick="openModal('finishedModal')">
             <h2>Finished</h2>
             <div class="section-content">
                 <div class="icon">💪</div>
-                <div class="count">16</div>
+                <div class="count">2</div>
                 <div class="label">Completed Workouts</div>
             </div>
         </div>
-        <div class="push-day-section">
+        <div class="push-day-section" onclick="openModal('inProgressModal')">
             <h2>In Progress</h2>
             <div class="section-content">
                 <div class="icon">🚴</div>
@@ -57,7 +57,7 @@
                 <div class="label">Workouts</div>
             </div>
         </div>
-        <div class="push-day-section">
+        <div class="push-day-section" onclick="openModal('timedModal')">
             <h2>Timed</h2>
             <div class="section-content">
                 <div class="icon">⏱</div>
@@ -66,6 +66,101 @@
             </div>
         </div>
     </div>
+
+
+<!-- Finished Details Modal -->
+<div id="finishedModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('finishedModal')">&times;</span>
+        <h3>Workout History</h3>
+        <div id="history">
+            <div class="finished-workouts">
+                <h2>Finished Workouts</h2>
+              
+                <div class="workout-entry">
+                  <h3>Full Body Strength</h3>
+                  <p>Date: April 9, 2025</p>
+                  <p>Duration: 45 minutes</p>
+                  <p>Calories Burned: 350 kcal</p>
+                  <button>Repeat Workout</button>
+                </div>
+              
+                <div class="workout-entry">
+                  <h3>HIIT Cardio</h3>
+                  <p>Date: April 6, 2025</p>
+                  <p>Duration: 30 minutes</p>
+                  <p>Calories Burned: 280 kcal</p>
+                  <button>Repeat Workout</button>
+                </div>
+              </div>
+        </div>
+        <button onclick="repeatWorkout()">Repeat</button>
+        <button onclick="saveAsFavorite()">Save as Favorite</button>
+    </div>
+</div>
+
+<!-- In Progress Details Modal -->
+<div id="inProgressModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('inProgressModal')">&times;</span>
+        <h3>Active Workouts</h3>
+        <div id="activeWorkouts">
+            <div class="in-progress-workouts">
+                <h2>Workouts In Progress</h2>
+              
+                <div class="workout-entry">
+                  <h3>Upper Body Strength</h3>
+                  <p>Started: April 10, 2025</p>
+                  <p>Progress: 60% complete</p>
+                  <button>Resume</button>
+                  <button>Abandon</button>
+                </div>
+              
+                <div class="workout-entry">
+                  <h3>Stretch & Mobility</h3>
+                  <p>Started: April 8, 2025</p>
+                  <p>Progress: 35% complete</p>
+                  <button>Resume</button>
+                  <button>Abandon</button>
+                </div>
+              </div>
+              
+        </div>
+        <button onclick="resumeWorkout()">Resume</button>
+        <button onclick="abandonWorkout()">Abandon</button>
+    </div>
+</div>
+
+<!-- Timed Details Modal -->
+<div id="timedModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('timedModal')">&times;</span>
+        <h3>Timed Workouts</h3>
+        <div id="timedSessions">
+            <div class="timed-sessions">
+                <h2>Timed Sessions</h2>
+              
+                <div class="session-entry">
+                  <h3>Tabata Sprint</h3>
+                  <p>Date: April 9, 2025</p>
+                  <p>Duration: 4 minutes</p>
+                  <p>Type: HIIT</p>
+                </div>
+              
+                <div class="session-entry">
+                  <h3>Plank Hold</h3>
+                  <p>Date: April 5, 2025</p>
+                  <p>Duration: 2 minutes</p>
+                  <p>Type: Core Focus</p>
+                </div>
+              
+                <button>Start New Timed Workout</button>
+              </div>
+              
+        </div>
+        <button onclick="startNewTimer()">Start New Timer</button>
+    </div>
+</div>
     
     <!-- Push Day END-->
 
@@ -91,6 +186,16 @@
         <span class="plus-sign">+</span>
     </button>
 </div>
+
+
+  <!-- Add Workout Section -->
+<div class="add-workout-container">
+    <h1 class="workout-title">Add Workout</h1>
+    <button class="add-workout-btn" onclick="window.location.href='add-workout.html'">
+        <span class="plus-sign">+</span>
+    </button>
+</div>
+
 
 <!-- Goal Form Modal (Pop-Up Window) -->
 <div id="goalModal" class="goal-modal">
@@ -193,27 +298,38 @@
 </div>
 
 
-     <!--Search exercise START-->
-     <div class="search-container">
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search exercises" oninput="searchExercises()">
-        </div>
-        <table class="exercise-table" id="exerciseTable">
-            <thead>
-                <tr>
-                    <th>Exercise</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Deadlift</td></tr>
-                <tr><td>Cire</td></tr>
-                <tr><td>Traditional Weight Lifting</td></tr>
-                <tr><td>Running</td></tr>
-                <tr><td>Yoga</td></tr>
-            </tbody>
-        </table>
+     <!-- Workout Categories Section -->
+     <div class="new"><h2>Try Something New!</h2></div>
+<div class="workout-container">
+    <div class="workout-box">
+        <h3>Pilates</h3>
+        <button class="learn-more-btn" onclick="openPopup('pilates')">Learn More</button>
     </div>
-     <!--Search exercise END-->
+
+    <div class="workout-box">
+        <h3>HIIT Training</h3>
+        <button class="learn-more-btn" onclick="openPopup('hiit')">Learn More</button>
+    </div>
+
+    <div class="workout-box">
+        <h3>Swimming</h3>
+        <button class="learn-more-btn" onclick="openPopup('swimming')">Learn More</button>
+    </div>
+</div>
+
+<!-- Pop-up Window (Modal) -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h2 id="popup-title"></h2>
+        <p id="popup-description"></p>
+        <h3>Muscles Targeted</h3>
+        <ul id="popup-muscles"></ul>
+        <h3>Results</h3>
+        <p id="popup-results"></p>
+    </div>
+</div>
+
 
   
 </body>
@@ -227,7 +343,7 @@
                 <div class="dashboard-icon">
                     <a href="index.html">
                         <img src="icons/dashboard.svg" alt="Dashboard">
-                        <p class="alt-text">dashboard-icon</p>
+                        <p class="alt-text">Dashboard</p>
                     </a>
                 </div>
             </div>
@@ -236,7 +352,7 @@
             <div class="image-item">
                 <div class="nutrition-icon">
                     <a href="nutrition.html">
-                        <img src="icons/apple.png" alt="Nutrition">
+                        <img src="icons/apple 2.svg" alt="Nutrition">
                         <p class="alt-text">Nutrition</p>
                     </a>
                 </div>
@@ -253,7 +369,7 @@
             <div class="image-item">
                 <div class="exercise-icon">
                     <a href="exercise.html">
-                        <img src="icons/db.png" alt="Exercise">
+                        <img src="icons/dumbell 1.svg" alt="Exercise">
                         <p class="alt-text">Workout</p>
                     </a>
                 </div>

@@ -38,31 +38,58 @@
 
     <!--Calendar END-->
 
-
-    <!--PUSH DAY SECTION-->
-    <div class="push-day-container">
-        <h2>Pull Day</h2>
-        <div class="push-day-details">
-            <div class="time-volume">
-                <div><strong>Time</strong> 20 mins</div>
-                <div><strong>Volume</strong> 3700 lbs</div>
+    <div class="workout-summary-container">
+        <h2>Workout Summary</h2>
+        <div class="workout-summary">
+            <!-- Workout Type -->
+            <div class="workout-type-exercises">
+                <!-- Workout Type -->
+               
+                <!-- Exercises Done -->
+                <div class="exercises-done">
+                    <h3>Exercises Done: Push Day</h3>
+                    <div class="exercise">
+                        <span><strong>Bench Press</strong></span>
+                        <span>3 sets</span>
+                        <span>120 lbs</span>
+                    </div>
+                    <div class="exercise">
+                        <span><strong>Shoulder Press</strong></span>
+                        <span>3 sets</span>
+                        <span>130 lbs</span>
+                    </div>
+                    <div class="exercise">
+                        <span><strong>Incline Bench</strong></span>
+                        <span>2 sets</span>
+                        <span>85 lbs</span>
+                    </div>
+                </div>
             </div>
-            <div class="exercises">
-                <div class="exercise">
-                    <span>3 sets</span>
-                    <span>Bench Press</span>
-                    <span>120 lbs</span>
+    
+            <!-- Duration & Calories + Additional Notes side by side -->
+        <div class="duration-notes-container">
+            <!-- Duration & Calories -->
+            <div class="duration-calories">
+                <h3>Duration & Calories</h3>
+                <div><strong>Duration:</strong> 20 minutes</div>
+                <div><strong>Calories Burned:</strong> 200 kcal (if tracked)</div>
+            </div>
+
+            <!-- Additional Notes -->
+            <div class="summary-notes">
+                <h3>Additional Notes</h3>
+                <p>Felt strong today. Should increase weight for bench press next time.</p>
+            </div>
+        </div>
+
+            
+            <!-- Progress Tracker (Optional) -->
+            <div class="progress-tracker">
+                <h3>Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 75%;">75%</div>
                 </div>
-                <div class="exercise">
-                    <span>3 sets</span>
-                    <span>Shoulder Press</span>
-                    <span>130 lbs</span>
-                </div>
-                <div class="exercise">
-                    <span>2 sets</span>
-                    <span>Incline Bench</span>
-                    <span>85 lbs</span>
-                </div>
+                <p>75% of the workout plan completed today.</p>
             </div>
         </div>
     </div>
@@ -83,92 +110,66 @@
     </div>
         <!--Progress Ring END-->
 
-     <!--Add Goal START-->
-     <div class="goal-container">
-        <h1 class="goal-title">Add Goal</h1>
-        <button class="add-goal-btn">
-            <span class="plus-sign">+</span>
-        </button>
-    </div>
-     <!--Add Goal END-->
+   
 
-     <!--Search exercise START-->
-     <div class="search-container">
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search exercises" oninput="searchExercises()">
-        </div>
-        <table class="exercise-table" id="exerciseTable">
-            <thead>
-                <tr>
-                    <th>Exercise</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Deadlift</td></tr>
-                <tr><td>Cire</td></tr>
-                <tr><td>Traditional Weight Lifting</td></tr>
-                <tr><td>Running</td></tr>
-                <tr><td>Yoga</td></tr>
-            </tbody>
-        </table>
-    </div>
-     <!--Search exercise END-->
 
   
 </body>
 
 <footer>
     <!-- NAVIGATION BAR-->
-       <!-- Main Image Section -->
-       <div class="image-container">
-            <!-- Dashboard Icon -->
-            <div class="image-item">
-                <div class="dashboard-icon">
-                    <a href="index.html">
-                        <img src="icons/dashboard.svg" alt="Dashboard">
-                        <p class="alt-text">dashboard-icon</p>
-                    </a>
+    <footer>
+        <!-- NAVIGATION BAR-->
+           <!-- Main Image Section -->
+           <div class="image-container">
+                <!-- Dashboard Icon -->
+                <div class="image-item">
+                    <div class="dashboard-icon">
+                        <a href="index.html">
+                            <img src="icons/dashboard.svg" alt="Dashboard">
+                            <p class="alt-text">Dashboard</p>
+                        </a>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Nutrition Icon -->
-            <div class="image-item">
-                <div class="nutrition-icon">
-                    <a href="nutrition.html">
-                        <img src="icons/apple.png" alt="Nutrition">
-                        <p class="alt-text">Nutrition</p>
-                    </a>
+    
+                <!-- Nutrition Icon -->
+                <div class="image-item">
+                    <div class="nutrition-icon">
+                        <a href="nutrition.html">
+                            <img src="icons/apple 2.svg" alt="Nutrition">
+                            <p class="alt-text">Nutrition</p>
+                        </a>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Plus Button in the center -->
-            <div class="image-item">
-
-                <button class="plus-button" id="plusButton">+</button>
-            </div>
-        
-
-            <!-- Exercise Icon -->
-            <div class="image-item">
-                <div class="exercise-icon">
-                    <a href="exercise.html">
-                        <img src="icons/db.png" alt="Exercise">
-                        <p class="alt-text">Workout</p>
-                    </a>
+    
+                <!-- Plus Button in the center -->
+                <div class="image-item">
+    
+                    <button class="plus-button" id="plusButton">+</button>
                 </div>
-            </div>
-
-            <!-- Settings Icon -->
-            <div class="image-item">
-                <div class="settings-icon">
-                    <a href="settings.html">
-                        <img src="icons/settings.svg" alt="Settings">
-                        <p class="alt-text">Settings</p>
-                    </a>
+            
+    
+                <!-- Exercise Icon -->
+                <div class="image-item">
+                    <div class="exercise-icon">
+                        <a href="exercise.html">
+                            <img src="icons/dumbell 1.svg" alt="Exercise">
+                            <p class="alt-text">Workout</p>
+                        </a>
+                    </div>
                 </div>
-            </div>
-    </div>
-</footer>
+    
+                <!-- Settings Icon -->
+                <div class="image-item">
+                    <div class="settings-icon">
+                        <a href="settings.html">
+                            <img src="icons/settings.svg" alt="Settings">
+                            <p class="alt-text">Settings</p>
+                        </a>
+                    </div>
+                </div>
+        </div>
+    </footer>
 <!--Nav Bar END-->
 
 

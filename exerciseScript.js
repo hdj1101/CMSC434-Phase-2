@@ -234,3 +234,130 @@ function searchExercises() {
         exerciseList.appendChild(li);
     }
 }
+
+function saveWorkout() {
+    const workoutName = document.getElementById('workout-name').value;
+    const workoutType = document.getElementById('workout-type').value;
+    const workoutDuration = document.getElementById('workout-duration').value;
+    const workoutDescription = document.getElementById('workout-description').value;
+
+    // Example: Saving the workout to local storage (for simplicity)
+    const workout = {
+        name: workoutName,
+        type: workoutType,
+        duration: workoutDuration,
+        description: workoutDescription
+    };
+
+    // Save the workout to localStorage (or you could save it to a database or backend)
+    localStorage.setItem('savedWorkout', JSON.stringify(workout));
+
+    // Alert or provide feedback
+    alert('Workout saved successfully! Redirecting to Exercise page...');
+
+    // Redirect to the exercise page
+    window.location.href = 'exercise.html';
+}
+
+
+
+
+// Function to open the popup window
+function openPopup(workoutType) {
+    const popup = document.getElementById("popup");
+    const title = document.getElementById("popup-title");
+    const description = document.getElementById("popup-description");
+    const muscles = document.getElementById("popup-muscles");
+    const results = document.getElementById("popup-results");
+
+    // Workout data for each type
+    const workoutInfo = {
+        pilates: {
+            title: "Pilates",
+            description: "Pilates is a low-impact workout focused on strengthening muscles while improving postural alignment and flexibility.",
+            muscles: ["Core", "Arms", "Legs", "Glutes"],
+            results: "Great for flexibility, core strength, and posture improvement."
+        },
+        hiit: {
+            title: "HIIT Training",
+            description: "HIIT (High-Intensity Interval Training) involves short bursts of intense exercise followed by short rest periods. It's great for burning fat.",
+            muscles: ["Full Body", "Core", "Legs", "Arms"],
+            results: "Effective for burning fat, improving cardiovascular health, and building endurance."
+        },
+        swimming: {
+            title: "Swimming",
+            description: "Swimming is a full-body workout that improves cardiovascular health, strengthens muscles, and enhances flexibility.",
+            muscles: ["Full Body", "Arms", "Legs", "Core"],
+            results: "Great for endurance, toning muscles, and improving cardiovascular health."
+        }
+    };
+
+    // Populate the popup with the selected workout's information
+    title.textContent = workoutInfo[workoutType].title;
+    description.textContent = workoutInfo[workoutType].description;
+
+    muscles.innerHTML = "";
+    workoutInfo[workoutType].muscles.forEach(muscle => {
+        const li = document.createElement("li");
+        li.textContent = muscle;
+        muscles.appendChild(li);
+    });
+
+    results.textContent = workoutInfo[workoutType].results;
+
+    // Show the popup
+    popup.style.display = "flex";
+}
+
+// Function to close the popup
+function closePopup() {
+    const popup = document.getElementById("popup");
+    popup.style.display = "none";
+}
+
+
+// Open Finished Details Modal
+function showFinishedDetails() {
+    document.getElementById('finishedModal').style.display = 'flex';
+}
+
+// Open In Progress Details Modal
+function showInProgressDetails() {
+    document.getElementById('inProgressModal').style.display = 'flex';
+}
+
+// Open Timed Details Modal
+function showTimedDetails() {
+    document.getElementById('timedModal').style.display = 'flex';
+}
+
+// Open Modal when card is clicked
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = 'flex';
+}
+
+// Close Modal
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+}
+
+// Dummy functions for button actions (you can replace these with real functions)
+function repeatWorkout() {
+    alert("Repeating the workout...");
+}
+
+function saveAsFavorite() {
+    alert("Saving as favorite...");
+}
+
+function resumeWorkout() {
+    alert("Resuming the workout...");
+}
+
+function abandonWorkout() {
+    alert("Abandoning the workout...");
+}
+
+function startNewTimer() {
+    alert("Starting a new timer...");
+}
