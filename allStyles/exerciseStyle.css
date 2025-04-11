@@ -1,0 +1,945 @@
+html, body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #FFFFFF;
+    color: #323435;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    scrollbar-width: auto;
+}
+h1 {
+    position: absolute;
+    top: 0rem;
+    left: 1.563rem;
+    font-size: 48;
+}
+
+html::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Container to center content */
+.container {
+    width: 640px;
+    height: 100%;
+    max-height: 960px;
+    background-color: #F6F7FF;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+}
+
+/* Image container to hold icons */
+.image-container {
+    display: flex;
+    justify-content: space-between; /* Space icons evenly */
+    background-color: #B8C5DC; /* nav bar */
+    padding: 0 0;
+    position: relative;
+    margin-top: auto;
+}
+
+/* Each icon item */
+.image-item {
+    text-align: center;
+    position: relative;
+}
+
+/* Image icon styling */
+.image-item img {
+    width: 70px;
+    height: auto;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Text below the icons */
+.alt-text {
+    margin-top: auto;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}
+
+.image-item a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+/* Plus Button */
+.plus-button {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #93B3E8;
+    color: #323435;
+    font-size: 24px;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border: solid #323435 4pt;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Dashboard, Nutrition, Exercise, and Settings Icons */
+.dashboard-icon,
+.nutrition-icon,
+.exercise-icon,
+.settings-icon {
+    position: relative;
+}
+
+/* Overlay container (existing styles) */
+.overlay-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+/* Close button for the overlay */
+.close-overlay {
+    position: absolute;
+    top: 10px;
+    left: calc(50% + 300px - 50px + 10px); /* Positioning the close button */
+    background-color: red;
+    color: white;
+    border: none;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1002;
+}
+
+/* Form and overlay background styles remain unchanged */
+/* Exercise and meal forms */
+.exercise-form, .meal-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1002;
+    max-width: 580px;
+    width: 100%;
+}
+
+
+/* Styling for forms */
+input, select, textarea {
+    margin: 10px 0;
+    padding: 10px;
+    width: 95%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="range"] {
+    width: 90%;
+}
+
+button.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Small text for slider labels */
+small {
+    display: block;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 12px;
+}
+* {
+    box-sizing: border-box;
+  }
+  body {
+    font-size: 14px;
+  }
+  .push-day-container {
+    display: flex;
+    justify-content: space-between; /* Space sections evenly */
+    width: 100%; /* Ensure it takes up full available width */
+    max-width: 26.25rem; /* Max width for the whole container */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 0.625rem;
+    margin-left: 11.25rem; /* Move the container 40px to the right */
+    position: absolute;
+    top: 7.5rem;
+
+}
+
+
+.push-day-section {
+    width: 130px; /* Set each section width to 150px */
+    height: px; /* Set each section height to 300px */
+    background-color: #f0f0f0; /* Light background for sections */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow for visual effect */
+    padding: 10px;
+    text-align: center; /* Center the content inside */
+    display: flex;
+    position: relative;
+    top: 30px;
+    left: 0px;
+    flex-direction: column;
+    justify-content: space-evenly; /* Evenly space out the content */
+}
+
+.push-day-section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #323435; /* Dark color for text */
+}
+
+.section-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Ensure top works */
+  top: -10px; /* Move the section content 20px up */
+}
+
+
+.icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.count {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.label {
+    font-size: 14px;
+    color: #555; /* Lighter color for the label */
+}
+
+
+.progress-container {
+    position: absolute;
+    top: 10.375rem;
+    left: 1.563rem;
+
+    text-align: center;
+}
+
+.progress-ring {
+    width: 150px;
+    height: 150px;
+    background: conic-gradient(#F48668 85%, #f0f0f0 85%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.progress-ring-23 {
+  width: 150px;
+  height: 150px;
+  background: conic-gradient(#F48668 95%, #f0f0f0 85%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.progress-ring-24 {
+  width: 150px;
+  height: 150px;
+  background: conic-gradient(#F48668 79%, #f0f0f0 85%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.progress-ring-25 {
+  width: 150px;
+  height: 150px;
+  background: conic-gradient(#F48668 100%, #f0f0f0 85%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.progress-ring-27 {
+  width: 150px;
+  height: 150px;
+  background: conic-gradient(#F48668 0%, #f0f0f0 85%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.progress-ring-28 {
+  width: 150px;
+  height: 150px;
+  background: conic-gradient(#F48668 0%, #f0f0f0 85%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.progress-ring-29 {
+  width: 150px;
+  height: 150px;
+  background: conic-gradient(#F48668 0%, #f0f0f0 85%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#percentage {
+  font-size: 18px;
+  font-weight: bold;
+  color: #323435;
+}
+
+.progress-circle {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-color: #F6F7FF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.percentage {
+    font-size: 20px;
+    font-weight: bold;
+    color: #323435;
+}
+
+.cals-left {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #323435;
+}
+
+.goal-container {
+    position: absolute;
+    top: 23.75rem;
+    left: 9.5rem;
+    text-align: center;
+    background-color: rgba(215, 223, 235, 0.46);
+    padding: .625rem;
+    border-radius: .625rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.goal-title {
+  position: absolute;
+  top: 0ren;
+  left: 5.625rem;
+    font-size: 24px;
+    font-weight: bold;
+    color: #323435;
+    margin-bottom: 20px;
+}
+
+.add-goal-btn {
+    width: 60px;
+    height: 60px;
+    background-color: #93B3E8;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-goal-btn .plus-sign {
+    font-size: 36px;
+    color: #fff;
+    font-weight: bold;
+}
+
+
+.add-workout-container {
+  position: absolute;
+  top: 23.75rem;
+  left: 20.5rem;
+  text-align: center;
+  background-color: rgba(215, 223, 235, 0.46);
+  padding: .625rem;
+  border-radius: .625rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+    /* position: absolute;
+    top: 380px;
+    left: 400px;
+    text-align: center;
+    background-color: rgba(215, 223, 235, 0.46);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+}
+.workout-title {
+  position: absolute;
+  top: 0px;
+  left: 90px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #323435;
+    margin-bottom: 20px;
+}
+
+.add-workout-btn {
+    width: 60px;
+    height: 60px;
+    background-color: #93B3E8;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-workout-btn .plus-sign {
+    font-size: 36px;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Goal Modal (Pop-Up Window) Styles */
+.goal-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with transparency */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.goal-modal-content {
+  background-color: white;
+  padding: 20px; /* Reduced padding for a more compact look */
+  border-radius: 10px;
+  width: 60%;
+  max-width: 600px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 30px; 
+  margin-bottom: 10px; 
+}
+
+h3 {
+  font-size: 30px; /* Reduced font size */
+  margin-top: 10px; /* Reduced margin between section titles and inputs */
+  margin-bottom: 5px; /* Reduced margin below section title */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Reduced gap between form elements */
+}
+
+select, input[type="checkbox"] {
+  display: block;
+  margin-bottom: 8px; /* Reduced margin below form elements */
+}
+
+.main-goal {
+  margin-bottom: 8px; /* Reduced margin below form elements */
+  display: block;
+  font-size: 15pt;
+}
+
+#main-goal, input[type="checkbox"]  {
+  font-size: 12pt;
+
+}
+
+button[type="submit"] {
+  background-color: #93B3E8;
+  color: white;
+  font-size: 16px;
+  padding: 8px 16px; /* Slightly reduced padding */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #7a9cb6;
+}
+
+
+.search-container {
+    width: 80%;
+    height: 30%;
+    max-width: 600px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.search-box {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: #93b3e8;
+}
+
+.exercise-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.exercise-table th,
+.exercise-table td {
+    padding: 5px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+.exercise-table th {
+    background-color: #f4f6f9;
+}
+
+.exercise-table td {
+    background-color: #f9f9f9;
+}
+
+.exercise-table tr:hover {
+    background-color: #e0e0e0;
+}
+
+
+.cal-arrow-button {
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #323435;
+}
+
+/* Calendar Layout */
+.calendar-container {
+  /* background-color: rgba(215, 223, 235, 0.46); */
+  
+  display: flex;
+  justify-content: center;
+  width: 90%; 
+  margin-bottom: 1rem;
+  position: absolute;
+  top : 6.375rem;
+
+}
+
+.calendar-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;              
+  justify-content: center;   
+}
+
+.calendar-days  {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.day {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: none;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.day:hover {
+  background-color: #ddd;
+}
+
+.day.selected {
+    background-color: #FDC5C0;
+    color: 323435;
+}
+
+#wed {
+  border: solid #D4392B 1pt;
+}/* Arrow Button Styles */
+/* Hover effect */
+.arrow-button:hover {
+  color: #93B3E8; /* Highlight color when hovering */
+}
+
+/* Optional: Styling for the Submit button text */
+.arrow-button[type="submit"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow-button[type="submit"]:hover {
+  background-color: #7a9cb6;
+}
+
+
+
+.workout-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.workout-form input,
+.workout-form select,
+.workout-form textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.workout-form button {
+  background-color: #93B3E8;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.workout-form button:hover {
+  background-color: #7a9cb6;
+}
+
+
+
+
+/* Workout Container */
+.workout-container {
+  position: relative;
+  top: 0rem;
+  left: 0rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.workout-box {
+  width: 30%;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.workout-box h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.learn-more-btn {
+  background-color: #93B3E8;
+  color: white;
+  font-size: 14px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.learn-more-btn:hover {
+  background-color: #7a9cb6;
+}
+
+/* Popup Modal */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.popup-content h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.popup-content p,
+.popup-content ul {
+  font-size: 16px;
+}
+
+.popup-content ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+.new {
+  position: relative;
+  left: 0rem;
+  top: 1rem;
+  margin-left: 40px; /* Adjust this value as needed */
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 60%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.close-btn {
+  font-size: 24px;
+  cursor: pointer;
+  color: #000;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+.workout-summary-container {
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: -60px; /* Move the container down by 50px */
+  /* left: px; */
+}
+
+h2 {
+  text-align: center;
+  color: #323435;
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.workout-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+
+
+
+
+.exercises-done {
+  width: 48%; /* Makes both sections 48% of the width of the parent container */
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  left: 220pt;
+}
+
+h3 {
+  color: #323435;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.exercise {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.exercise span {
+  font-weight: bold;
+}
+
+.duration-calories div, .summary-notes p {
+  font-size: 16px;
+  color: #555;
+}
+
+.progress-tracker {
+  display: flex;
+  flex-direction: column;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 20px;
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+.progress {
+  background-color: #3498db;
+  height: 100%;
+  text-align: center;
+  color: white;
+  line-height: 20px;
+  border-radius: 20px;
+}
+
+.summary-notes {
+  font-style: italic;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Flex container for duration/calories and summary notes */
+.duration-notes-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Add some space between the two boxes */
+}
+
+.duration-calories, .summary-notes {
+  width: 48%; /* Makes both sections 48% of the width of the parent container */
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

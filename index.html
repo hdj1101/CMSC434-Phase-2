@@ -4,41 +4,130 @@
     <title>Tab 1 / Main</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=640, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="allStyles/styles.css">
+    <link rel="stylesheet" href="allStyles/stylesDash.css">
+    <script src="allScripts/script.js" defer></script>
+    <script src="allScripts/scriptDash.js" defer></script>
 </head>
 <body>
     <div class="container">
-        <h1>-Home-</h1>
+        <h1>This Week...</h1>
+
         <div class="content">
-            <!-- Main content of the page here -->
+            <div class="calendar-island">
+                <div class="calendar">
+                    <div class="calendar-row">
+                        <div class="calendar-column">
+                            <div class="day-label">Sun</div>
+                            <button class="day-circle" onclick="selectDay(this)">23</button>
+                        </div>
+                        <div class="calendar-column">
+                            <div class="day-label">Mon</div>
+                            <button class="day-circle" onclick="selectDay(this)">24</button>
+                        </div>
+                        <div class="calendar-column">
+                            <div class="day-label">Tue</div>
+                            <button class="day-circle" onclick="selectDay(this)">25</button>
+                        </div>
+                        <div class="calendar-column">
+                            <div class="day-label">Wed</div>
+                            <button class="day-circle" id="default-selected" onclick="selectDay(this)">26</button>
+                        </div>
+                        <div class="calendar-column">
+                            <div class="day-label">Thu</div>
+                            <button class="day-circle" onclick="selectDay(this)">27</button>
+                        </div>
+                        <div class="calendar-column">
+                            <div class="day-label">Fri</div>
+                            <button class="day-circle" onclick="selectDay(this)">28</button>
+                        </div>
+                        <div class="calendar-column">
+                            <div class="day-label">Sat</div>
+                            <button class="day-circle" onclick="selectDay(this)">29</button>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+
+            <div class="progress-island">
+                <h2>Today's Progress</h2>
+                <div class="progress-container-row">
+                    <!-- Step Tracker Left -->
+                    <div class="progress-left">
+                        <svg class="progress-ring" width="120" height="120">
+                            <circle class="progress-ring__bg" cx="60" cy="60" r="50" />
+                            <circle class="progress-ring__circle" cx="60" cy="60" r="50" />
+                        </svg>
+                        <p class="step-info"><strong id="step-count">4,250</strong> / 10,000 steps</p>
+                    </div>
+            
+                    <!-- Stats Right -->
+                    <div class="progress-right">
+                        <div class="stat-row">
+                            <img src="icons/FireIcon.jpeg" alt="flame icon" class="stat-icon">
+                            <p class="stat-label"><strong id = "calories-count">200</strong> Calories Burned</p>
+                        </div>
+                        <div class="stat-row">
+                            <img src="icons/StreakIcon.jpeg" alt="streak icon" class="stat-icon">
+                            <p class="stat-label"><strong id = "streak-count"> 2</strong> Day Streak</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                   
+
+            <a href="weekly-report.html" class="weekly-report-button">Your Weekly Report</a>
         </div>
 
         <!-- Main Image Section -->
         <div class="image-container">
-            <div class="image-item">
-                <a href="exercise.html">
-                    <img src="icons/db.png" alt="Exercise">
-                    <p class="alt-text">Workout</p>
-                </a>
-            </div>
+            <!-- Dashboard Icon -->
             <div class="image-item active">
-                <a href="index.html">
-                    <img src="icons/home.png" alt="LR">
-                    <p class="alt-text">Home</p>
-                    <div class="overlay"></div>
-                </a>
+                <div class="dashboard-icon">
+                    <a href="index.html">
+                        <img src="icons/dashboard.svg" alt="Dashboard">
+                        <p class="alt-text">Dashboard</p>
+                        <div class="overlay"></div>
+                    </a>
+                </div>
             </div>
+
+            <!-- Nutrition Icon -->
             <div class="image-item">
-                <a href="nutrition.html">
-                    <img src="icons/apple.png" alt="Nutrition">
-                    <p class="alt-text">Nutrition</p>
-                </a>
+                <div class="nutrition-icon">
+                    <a href="nutrition.html">
+                        <img src="icons/apple 2.svg" alt="Nutrition">
+                        <p class="alt-text">Nutrition</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Plus Button in the center -->
+            <div class="image-item">
+                <button class="plus-button" id="plusButton">+</button>
+            </div>
+        
+
+            <!-- Exercise Icon -->
+            <div class="image-item">
+                <div class="exercise-icon">
+                    <a href="exercise.html">
+                        <img src="icons/dumbell 1.svg" alt="Exercise">
+                        <p class="alt-text">Workout</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Settings Icon -->
+            <div class="image-item">
+                <div class="settings-icon">
+                    <a href="settings.html">
+                        <img src="icons/settings.svg" alt="Settings">
+                        <p class="alt-text">Settings</p>
+                    </a>
+                </div>
             </div>
         </div>
-
-        <!-- Plus Button -->
-        <button class="plus-button" id="plusButton">+</button>
 
         <!-- Exercise/Meal options -->
         <div class="overlay-container" id="overlayContainer">

@@ -1,9 +1,8 @@
-const dateTextElement = document.getElementById('date-text');
+// const dateTextElement = document.getElementById('date-text');
 const overlayBox = document.getElementById('overlay-box');
 const circle = document.querySelector('.circle.meals');
 const progressCircle = document.getElementById('progress-circle');
 const goalText = document.getElementById('goal-text');
-dateTextElement.textContent = getFormattedDate();
 
 const mealGoalData = [
     { name: 'Breakfast', calorie: 200, startAngle: 0, endAngle: 72 }, // Will figure out how to dynamically update angles later
@@ -13,14 +12,14 @@ const mealGoalData = [
 ];
 
 // Update clock
-function getFormattedDate() {
-    const today = new Date();
-    const options = { month: 'long', day: 'numeric' };
-    const dateStr = today.toLocaleDateString('en-US', options); // e.g., "April 8"
-    return `Today, ${dateStr}`;
-}
+// function getFormattedDate() {
+//     const today = new Date();
+//     const options = { month: 'long', day: 'numeric' };
+//     const dateStr = today.toLocaleDateString('en-US', options);
+//     return `Today, ${dateStr}`;
+// }
 
-dateTextElement.textContent = getFormattedDate();
+// dateTextElement.textContent = getFormattedDate();
 
 // Calorie circle stuff
 const calorieGoal = 1500;
@@ -80,3 +79,21 @@ circle.addEventListener('mousemove', (e) => {
 circle.addEventListener('mouseleave', () => {
     overlayBox.style.display = 'none';
 });
+
+// Show Meal Details in Overlay
+function showMealDetails(name, type, calories, fat, cholesterol, sodium, protein) {
+    document.getElementById("mealName").innerText = name;
+    document.getElementById("mealType").innerText = type;
+    document.getElementById("mealCalories").innerText = calories + " cal";
+    document.getElementById("mealFat").innerText = fat;
+    document.getElementById("mealCholesterol").innerText = cholesterol;
+    document.getElementById("mealSodium").innerText = sodium;
+    document.getElementById("mealProtein").innerText = protein;
+    
+    document.getElementById("mealOverlay").style.display = 'flex';
+}
+
+// Close Meal Details Overlay
+function closeMealOverlay() {
+    document.getElementById("mealOverlay").style.display = 'none';
+}

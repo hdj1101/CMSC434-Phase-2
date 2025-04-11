@@ -4,10 +4,10 @@
     <title>Tab 1 / Main</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=640, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="stylesNutrition.css">
-    <script src="script.js" defer></script>
-    <script src="scriptNutrition.js" defer></script>
+    <link rel="stylesheet" href="allStyles/styles.css">
+    <link rel="stylesheet" href="allStyles/stylesNutrition.css">
+    <script src="allScripts/script.js" defer></script>
+    <script src="allScripts/scriptNutrition.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -16,7 +16,21 @@
             <!-- Main content of the page here -->
         </div>
 
-        <div class="date-text" id="date-text"></div>
+        <!-- <div class="date-text" id="date-text"></div> -->
+
+        <div class="calendar-container">
+            <div class="calendar-days">
+                <button id="prevWeek" class="cal-arrow-button">&#60;</button>
+                <div class="day" id="sun" onclick="goToNutritionPage('-04-23')">23</div>
+                <div class="day" id="mon" onclick="goToNutritionPage('-04-24')">24</div>
+                <div class="day" id="tue" onclick="goToNutritionPage('-04-25')">25</div>
+                <div class="day selected" id="wed" onclick="goToNutritionPage('')">26</div>
+                <div class="day" id="thu" onclick="goToNutritionPage('-04-27')" >27</div>
+                <div class="day" id="fri" onclick="goToNutritionPage('-04-28')">28</div>
+                <div class="day" id="sat" onclick="goToNutritionPage('-04-29')">29</div>
+                <button id="nextWeek" class="cal-arrow-button">&#62;</button>
+            </div>
+        </div>
 
         <div class="circle-container">
             <div class="circle meals"></div>
@@ -33,21 +47,21 @@
         <div class="main-box">
             <h2>Recent Meals</h2>
             <div class="meal-grid">
-                <div class="meal-box" onclick="showMealDetails('Water Crackers', 60, '1g', '0mg', '85mg', '1g')">
+                <div class="meal-box" onclick="showMealDetails('Water Crackers', 'Snack', 60, '1g', '0mg', '85mg', '1g')">
                     <p>Water Crackers</p>
                     <p>60 cal</p>
                 </div>
-                <div class="meal-box" onclick="showMealDetails('Chicken Salad', 350, '20g', '50mg', '400mg', '30g')">
+                <div class="meal-box" onclick="showMealDetails('Chicken Salad', 'Dinner', 400, '20g', '50mg', '400mg', '30g')">
                     <p>Chicken Salad</p>
-                    <p>350 cal</p>
+                    <p>400 cal</p>
                 </div>
-                <div class="meal-box" onclick="showMealDetails('Fruit Bowl', 200, '0g', '0mg', '10mg', '5g')">
+                <div class="meal-box" onclick="showMealDetails('Fruit Bowl', 'Snack', 240, '0g', '0mg', '10mg', '5g')">
                     <p>Fruit Bowl</p>
-                    <p>200 cal</p>
+                    <p>240 cal</p>
                 </div>
-                <div class="meal-box" onclick="showMealDetails('Oatmeal', 250, '5g', '0mg', '150mg', '8g')">
+                <div class="meal-box" onclick="showMealDetails('Oatmeal', 'Snack', 100, '5g', '0mg', '150mg', '8g')">
                     <p>Oatmeal</p>
-                    <p>250 cal</p>
+                    <p>100 cal</p>
                 </div>
             </div>
         </div>
@@ -57,6 +71,7 @@
             <div class="meal-details">
                 <button class="close-btn" onclick="closeMealOverlay()">X</button>
                 <h2 id="mealName">Meal Name</h2>
+                <p><strong>Meal Type:</strong> <span id="mealType"></span></p>
                 <p><strong>Calories:</strong> <span id="mealCalories"></span></p>
                 <p><strong>Total Fat:</strong> <span id="mealFat"></span></p>
                 <p><strong>Cholesterol:</strong> <span id="mealCholesterol"></span></p>
@@ -67,29 +82,54 @@
 
         <!-- Main Image Section -->
         <div class="image-container">
+            <!-- Dashboard Icon -->
             <div class="image-item">
-                <a href="exercise.html">
-                    <img src="icons/db.png" alt="Exercise">
-                    <p class="alt-text">Workout</p>
-                </a>
+                <div class="dashboard-icon">
+                    <a href="index.html">
+                        <img src="icons/dashboard.svg" alt="Dashboard">
+                        <p class="alt-text">Dashboard</p>
+                    </a>
+                </div>
             </div>
-            <div class="image-item">
-                <a href="index.html">
-                    <img src="icons/home.png" alt="LR">
-                    <p class="alt-text">Home</p>
-                </a>
-            </div>
+
+            <!-- Nutrition Icon -->
             <div class="image-item active">
-                <a href="nutrition.html">
-                    <img src="icons/apple.png" alt="Nutrition">
-                    <p class="alt-text">Nutrition</p>
-                    <div class="overlay"></div>
-                </a>
+                <div class="nutrition-icon">
+                    <a href="nutrition.html">
+                        <img src="icons/apple 2.svg" alt="Nutrition">
+                        <p class="alt-text">Nutrition</p>
+                        <div class="overlay"></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Plus Button in the center -->
+            <div class="image-item">
+
+                <button class="plus-button" id="plusButton">+</button>
+            </div>
+        
+
+            <!-- Exercise Icon -->
+            <div class="image-item">
+                <div class="exercise-icon">
+                    <a href="exercise.html">
+                        <img src="icons/dumbell 1.svg" alt="Exercise">
+                        <p class="alt-text">Workout</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Settings Icon -->
+            <div class="image-item">
+                <div class="settings-icon">
+                    <a href="settings.html">
+                        <img src="icons/settings.svg" alt="Settings">
+                        <p class="alt-text">Settings</p>
+                    </a>
+                </div>
             </div>
         </div>
-
-        <!-- Plus Button -->
-        <button class="plus-button" id="plusButton">+</button>
 
         <!-- Exercise/Meal options -->
         <div class="overlay-container" id="overlayContainer">

@@ -4,42 +4,382 @@
     <title>Tab 1 / Main</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=640, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="allStyles/exerciseStyle.css">
+    <script src="allScripts/exerciseScript.js" defer></script>
 </head>
+<header>
+      
+</header>
+        
 <body>
+
     <div class="container">
         <h1>-Exercise-</h1>
-        <div class="content">
-            <!-- Main content of the page here -->
-        </div>
+    <!-- Calendar START -->
+<div class="calendar-container">
+    <div class="calendar-days">
+        <button id="prevWeek" class="cal-arrow-button">&#60;</button>
+        <div class="day" id="sun" onclick="goToExercisePage('-04-23')">23</div>
+        <div class="day" id="mon" onclick="goToExercisePage('-04-24')">24</div>
+        <div class="day" id="tue" onclick="goToExercisePage('-04-25')">25</div>
+        <div class="day selected" id="wed" onclick="goToExercisePage('')">26</div>
+        <div class="day" id="thu" onclick="goToExercisePage('-04-27')" >27</div>
+        <div class="day" id="fri" onclick="goToExercisePage('-04-28')">28</div>
+        <div class="day" id="sat" onclick="goToExercisePage('-04-29')">29</div>
+        <button id="nextWeek" class="cal-arrow-button">&#62;</button>
+    </div>
+</div>
+<!-- Calendar END -->
 
-        <!-- Main Image Section -->
-        <div class="image-container">
-            <div class="image-item active">
-                <a href="exercise.html">
-                    <img src="icons/db.png" alt="Exercise">
-                    <p class="alt-text">Workout</p>
-                    <div class="overlay"></div>
-                </a>
-            </div>
-            <div class="image-item">
-                <a href="index.html">
-                    <img src="icons/home.png" alt="LR">
-                    <p class="alt-text">Home</p>
-                    
-                </a>
-            </div>
-            <div class="image-item">
-                <a href="nutrition.html">
-                    <img src="icons/apple.png" alt="Nutrition">
-                    <p class="alt-text">Nutrition</p>
-                </a>
+    <!--Calendar END-->
+
+
+    <!--PUSH DAY SECTION-->
+    <div class="push-day-container">
+        <div class="push-day-section" onclick="openModal('finishedModal')">
+            <h2>Finished</h2>
+            <div class="section-content">
+                <div class="icon">💪</div>
+                <div class="count">2</div>
+                <div class="label">Completed Workouts</div>
             </div>
         </div>
+        <div class="push-day-section" onclick="openModal('inProgressModal')">
+            <h2>In Progress</h2>
+            <div class="section-content">
+                <div class="icon">🚴</div>
+                <div class="count">2</div>
+                <div class="label">Workouts</div>
+            </div>
+        </div>
+        <div class="push-day-section" onclick="openModal('timedModal')">
+            <h2>Timed</h2>
+            <div class="section-content">
+                <div class="icon">⏱</div>
+                <div class="count">6</div>
+                <div class="label">Minutes</div>
+            </div>
+        </div>
+    </div>
 
-        <!-- Plus Button -->
-        <button class="plus-button" id="plusButton">+</button>
+
+<!-- Finished Details Modal -->
+<div id="finishedModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('finishedModal')">&times;</span>
+        <h3>Workout History</h3>
+        <div id="history">
+            <div class="finished-workouts">
+                <h2>Finished Workouts</h2>
+              
+                <div class="workout-entry">
+                  <h3>Full Body Strength</h3>
+                  <p>Date: April 9, 2025</p>
+                  <p>Duration: 45 minutes</p>
+                  <p>Calories Burned: 350 kcal</p>
+                  <button>Repeat Workout</button>
+                </div>
+              
+                <div class="workout-entry">
+                  <h3>HIIT Cardio</h3>
+                  <p>Date: April 6, 2025</p>
+                  <p>Duration: 30 minutes</p>
+                  <p>Calories Burned: 280 kcal</p>
+                  <button>Repeat Workout</button>
+                </div>
+              </div>
+        </div>
+        <button onclick="repeatWorkout()">Repeat</button>
+        <button onclick="saveAsFavorite()">Save as Favorite</button>
+    </div>
+</div>
+
+<!-- In Progress Details Modal -->
+<div id="inProgressModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('inProgressModal')">&times;</span>
+        <h3>Active Workouts</h3>
+        <div id="activeWorkouts">
+            <div class="in-progress-workouts">
+                <h2>Workouts In Progress</h2>
+              
+                <div class="workout-entry">
+                  <h3>Upper Body Strength</h3>
+                  <p>Started: April 10, 2025</p>
+                  <p>Progress: 60% complete</p>
+                  <button>Resume</button>
+                  <button>Abandon</button>
+                </div>
+              
+                <div class="workout-entry">
+                  <h3>Stretch & Mobility</h3>
+                  <p>Started: April 8, 2025</p>
+                  <p>Progress: 35% complete</p>
+                  <button>Resume</button>
+                  <button>Abandon</button>
+                </div>
+              </div>
+              
+        </div>
+        <button onclick="resumeWorkout()">Resume</button>
+        <button onclick="abandonWorkout()">Abandon</button>
+    </div>
+</div>
+
+<!-- Timed Details Modal -->
+<div id="timedModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('timedModal')">&times;</span>
+        <h3>Timed Workouts</h3>
+        <div id="timedSessions">
+            <div class="timed-sessions">
+                <h2>Timed Sessions</h2>
+              
+                <div class="session-entry">
+                  <h3>Tabata Sprint</h3>
+                  <p>Date: April 9, 2025</p>
+                  <p>Duration: 4 minutes</p>
+                  <p>Type: HIIT</p>
+                </div>
+              
+                <div class="session-entry">
+                  <h3>Plank Hold</h3>
+                  <p>Date: April 5, 2025</p>
+                  <p>Duration: 2 minutes</p>
+                  <p>Type: Core Focus</p>
+                </div>
+              
+                <button>Start New Timed Workout</button>
+              </div>
+              
+        </div>
+        <button onclick="startNewTimer()">Start New Timer</button>
+    </div>
+</div>
+    
+    <!-- Push Day END-->
+
+
+       <!--Progress Ring START-->
+       <div class="progress-container">
+        <div class="progress-ring">
+            <div class="progress-circle">
+                <span id="percentage">85%</span>
+            </div>
+        </div>
+        <p class="cals-left">40 cals left</p>
+    </div>
+        <!--Progress Ring END-->
+
+     <!-- Add Goal Section -->
+<div class="goal-container">
+    <h1 class="goal-title">Add Goal</h1>
+    <button class="add-goal-btn" onclick="openGoalForm()">
+        <span class="plus-sign">+</span>
+    </button>
+</div>
+
+
+  <!-- Add Workout Section -->
+<div class="add-workout-container">
+    <h1 class="workout-title">Add Workout</h1>
+    <button class="add-workout-btn" onclick="window.location.href='add-workout.html'">
+        <span class="plus-sign">+</span>
+    </button>
+</div>
+
+
+<!-- Goal Form Modal (Pop-Up Window) -->
+<div id="goalModal" class="goal-modal">
+    <div class="goal-modal-content">
+        <span class="close-btn" onclick="closeGoalForm()">&times;</span>
+        <h2>Set Your Fitness Goal</h2>
+        
+        <form id="goalForm">
+            <!-- Page 1 - Core Goal Identification -->
+            <div class="goal-page" id="page-1">
+                <h3>🔥 Core Goal Identification</h3>
+                <div class="main-goal">
+                    <label for="main-goal">What is your main fitness goal?</label><br>
+                    <select id="main-goal" name="main-goal">
+                        <option value="lose-weight">Lose weight</option>
+                        <option value="build-muscle">Build muscle</option>
+                        <option value="improve-endurance">Improve endurance</option>
+                        <option value="increase-flexibility">Increase flexibility</option>
+                        <option value="maintain-fitness">Maintain current fitness</option>
+                        <option value="train-for-event">Train for an event</option>
+                        <option value="other">Other</option>
+                    </select><br><br>
+                </div>
+
+                <label for="specific-areas">Are there specific areas you'd like to focus on?</label><br>
+                <input type="checkbox" name="focus" value="core"> Core<br>
+                <input type="checkbox" name="focus" value="arms"> Arms<br>
+                <input type="checkbox" name="focus" value="legs"> Legs<br>
+                <input type="checkbox" name="focus" value="glutes"> Glutes<br>
+                <input type="checkbox" name="focus" value="full-body"> Full body<br>
+                <input type="checkbox" name="focus" value="posture"> Posture/alignment<br><br>
+
+                <div class="navigation-buttons">
+                    <!-- Right Arrow for Next -->
+                    <button type="button" class="arrow-button" onclick="nextPage(2)">
+                        <span class="arrow-right">&#8594;</span> <!-- Right Arrow -->
+                    </button>
+                </div>
+            </div>
+
+            <!-- Page 2 - Timeline & Motivation -->
+            <div class="goal-page" id="page-2" style="display: none;">
+                <h3>📅 Timeline & Motivation</h3>
+                <label for="timeline">Do you have a specific timeline or event you're working towards?</label><br>
+                <select id="timeline" name="timeline">
+                    <option value="yes">Yes (e.g., wedding, vacation, sports tryouts)</option>
+                    <option value="no">No, just ongoing improvement</option>
+                </select><br><br>
+
+                <label for="motivation">What motivates you to stay active?</label><br>
+                <select id="motivation" name="motivation">
+                    <option value="feeling-stronger">Feeling stronger</option>
+                    <option value="mental-health">Mental health</option>
+                    <option value="appearance">Appearance</option>
+                    <option value="energy-levels">Energy levels</option>
+                    <option value="social">Social/community</option>
+                    <option value="medical-reasons">Medical reasons</option>
+                </select><br><br>
+
+                <div class="navigation-buttons">
+                    <!-- Left Arrow for Back -->
+                    <button type="button" class="arrow-button" onclick="prevPage(1)">
+                        <span class="arrow-left">&#8592;</span> <!-- Left Arrow -->
+                    </button>
+            
+                    <!-- Right Arrow for Next -->
+                    <button type="button" class="arrow-button" onclick="nextPage(3)">
+                        <span class="arrow-right">&#8594;</span> <!-- Right Arrow -->
+                    </button>
+                </div>
+            </div>
+
+            <!-- Page 3 - Submit Goal -->
+            <div class="goal-page" id="page-3" style="display: none;">
+                <h3>📋 Review & Submit</h3>
+                <p>Review your goals and submit:</p>
+
+                <div id="review-goals">
+                    <p><strong>Main Goal:</strong> Lose weight</span></p>
+                    <p><strong>Focus Areas:</strong> Core, Arms</span></p>
+                    <p><strong>Timeline?</strong> No, just pngoing improvement<span id="review-timeline"></span></p>
+                    <p><strong>Motivation:</strong> Feeling better, Appearance</span></p>
+                </div>
+
+                <div class="navigation-buttons">
+                    <!-- Left Arrow for Back -->
+                    <button type="button" class="arrow-button" onclick="prevPage(2)">
+                        <span class="arrow-left">&#8592;</span> <!-- Left Arrow -->
+                    </button>
+            
+                    <!-- Right Arrow for Submit -->
+                    <button type="button" class="arrow-button" onclick="submitGoalForm()">
+                        Submit Goal <span class="arrow-right">&#8594;</span> <!-- Right Arrow -->
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+     <!-- Workout Categories Section -->
+     <div class="new"><h2>Try Something New!</h2></div>
+<div class="workout-container">
+    <div class="workout-box">
+        <h3>Pilates</h3>
+        <button class="learn-more-btn" onclick="openPopup('pilates')">Learn More</button>
+    </div>
+
+    <div class="workout-box">
+        <h3>HIIT Training</h3>
+        <button class="learn-more-btn" onclick="openPopup('hiit')">Learn More</button>
+    </div>
+
+    <div class="workout-box">
+        <h3>Swimming</h3>
+        <button class="learn-more-btn" onclick="openPopup('swimming')">Learn More</button>
+    </div>
+</div>
+
+<!-- Pop-up Window (Modal) -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h2 id="popup-title"></h2>
+        <p id="popup-description"></p>
+        <h3>Muscles Targeted</h3>
+        <ul id="popup-muscles"></ul>
+        <h3>Results</h3>
+        <p id="popup-results"></p>
+    </div>
+</div>
+
+
+  
+</body>
+
+<footer>
+    <!-- NAVIGATION BAR-->
+       <!-- Main Image Section -->
+       <div class="image-container">
+            <!-- Dashboard Icon -->
+            <div class="image-item">
+                <div class="dashboard-icon">
+                    <a href="index.html">
+                        <img src="icons/dashboard.svg" alt="Dashboard">
+                        <p class="alt-text">Dashboard</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Nutrition Icon -->
+            <div class="image-item">
+                <div class="nutrition-icon">
+                    <a href="nutrition.html">
+                        <img src="icons/apple 2.svg" alt="Nutrition">
+                        <p class="alt-text">Nutrition</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Plus Button in the center -->
+            <div class="image-item">
+
+                <button class="plus-button" id="plusButton">+</button>
+            </div>
+        
+
+            <!-- Exercise Icon -->
+            <div class="image-item">
+                <div class="exercise-icon">
+                    <a href="exercise.html">
+                        <img src="icons/dumbell 1.svg" alt="Exercise">
+                        <p class="alt-text">Workout</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Settings Icon -->
+            <div class="image-item">
+                <div class="settings-icon">
+                    <a href="settings.html">
+                        <img src="icons/settings.svg" alt="Settings">
+                        <p class="alt-text">Settings</p>
+                    </a>
+                </div>
+            </div>
+    </div>
+</footer>
+<!--Nav Bar END-->
+
 
         <!-- Exercise/Meal options -->
         <div class="overlay-container" id="overlayContainer">
@@ -64,8 +404,28 @@
                 <option value="Running">Running</option>
                 <option value="Sport Practice">Sport Practice</option>
                 <option value="Walking">Walking</option>
-                <option value="Workout">Workout</option>
+                <option value="Strength Training">Strength Training</option>
                 <option value="Yoga">Yoga</option>
+                <option value="Dance">Dance</option>
+                <option value="Pilates">Pilates</option>
+
+
+                <section class="exercise-details">
+                    <h2>Add Exercise to Regimen</h2>
+                    <input type="text" id="exercise-name" placeholder="Exercise Name">
+                    <textarea id="exercise-description" placeholder="Exercise Description"></textarea>
+                    <input type="number" id="sets" placeholder="Sets" min="1">
+                    <input type="number" id="reps" placeholder="Reps per Set" min="1">
+                    <button id="save-exercise-btn">Save Exercise</button>
+                </section>
+
+                <section class="progress-section">
+                    <h2>Your Progress</h2>
+                    <textarea id="progress-notes" placeholder="Add your progress here..."></textarea>
+                    <button id="save-progress-btn">Save Progress</button>
+                </section>
+
+
             </select>
             <textarea placeholder="Describe your exercise..."></textarea>
             <input type="number" placeholder="Duration (minutes)">
