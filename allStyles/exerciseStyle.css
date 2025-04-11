@@ -1,4 +1,8 @@
 html, body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
     font-family: 'Helvetica Neue', sans-serif;
     background-color: #FFFFFF;
     color: #323435;
@@ -9,11 +13,12 @@ html, body {
     overflow: hidden;
     scrollbar-width: auto;
 }
+
 h1 {
     position: absolute;
     top: 0rem;
     left: 1.563rem;
-    font-size: 48;
+    font-size: 36px;
 }
 
 html::-webkit-scrollbar {
@@ -129,35 +134,69 @@ html::-webkit-scrollbar {
     z-index: 1002;
 }
 
-/* Form and overlay background styles remain unchanged */
+/* Overlay items for Exercise and Meal buttons */
+.overlay-item {
+  background-color: #B4D0FF;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.overlay-item button {
+  background-color: #DCE7FE;
+  font-weight: bold;
+  font-size: 18px;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.overlay-item button:hover {
+  background-color: #B4D0FF;
+}
+
+/* Overlay background for forms */
+.overlay-background {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+}
+
 /* Exercise and meal forms */
 .exercise-form, .meal-form {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    z-index: 1002;
-    max-width: 580px;
-    width: 100%;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1002;
+  max-width: 580px;
+  width: 100%;
 }
 
 
 /* Styling for forms */
 input, select, textarea {
-    margin: 10px 0;
-    padding: 10px;
-    width: 95%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px;
+  width: 95%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 input[type="range"] {
-    width: 90%;
+  width: 90%;
 }
 
 button.close-btn {
@@ -468,13 +507,13 @@ small {
   max-width: 600px;
 }
 
-.close-btn {
+/* .close-btn {
   position: absolute;
   top: 10px;
   right: 20px;
   font-size: 24px;
   cursor: pointer;
-}
+} */
 
 h2 {
   font-size: 30px; 
@@ -776,13 +815,13 @@ button[type="submit"]:hover {
   padding-left: 20px;
 }
 
-.close-btn {
+/* .close-btn {
   position: absolute;
   top: 10px;
   right: 10px;
   font-size: 24px;
   cursor: pointer;
-}
+} */
 
 
 .new {
@@ -815,14 +854,14 @@ button[type="submit"]:hover {
   text-align: center;
 }
 
-.close-btn {
+/* .close-btn {
   font-size: 24px;
   cursor: pointer;
   color: #000;
   position: absolute;
   top: 10px;
   right: 10px;
-}
+} */
 
 button {
   margin-top: 10px;

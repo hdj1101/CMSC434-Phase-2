@@ -192,45 +192,26 @@
             <h2>Exercise</h2>
             <select>
                 <option value="Cycling">Cycling</option>
+                <option value="Dance">Dance</option>
                 <option value="Hiking">Hiking</option>
+                <option value="Pilates">Pilates</option>
                 <option value="Rowing">Rowing</option>
                 <option value="Rock Climbing">Rock Climbing</option>
                 <option value="Running">Running</option>
                 <option value="Sport Practice">Sport Practice</option>
-                <option value="Walking">Walking</option>
                 <option value="Strength Training">Strength Training</option>
+                <option value="Walking">Walking</option>
+                <option value="Workout">Workout</option>
                 <option value="Yoga">Yoga</option>
-                <option value="Dance">Dance</option>
-                <option value="Pilates">Pilates</option>
-
-
-                <section class="exercise-details">
-                    <h2>Add Exercise to Regimen</h2>
-                    <input type="text" id="exercise-name" placeholder="Exercise Name">
-                    <textarea id="exercise-description" placeholder="Exercise Description"></textarea>
-                    <input type="number" id="sets" placeholder="Sets" min="1">
-                    <input type="number" id="reps" placeholder="Reps per Set" min="1">
-                    <button id="save-exercise-btn">Save Exercise</button>
-                </section>
-
-                <section class="progress-section">
-                    <h2>Your Progress</h2>
-                    <textarea id="progress-notes" placeholder="Add your progress here..."></textarea>
-                    <button id="save-progress-btn">Save Progress</button>
-                </section>
-
-
             </select>
             <textarea placeholder="Describe your exercise..."></textarea>
             <input type="number" placeholder="Duration (minutes)">
-            <!-- <label>How did you feel?</label> -->
-            <!-- <input type="range" min="1" max="10" placeholder="How did you feel?"> --> <!-- Not sure if we want to do this, might implement different variation later-->
-            <!-- <small>1 = Worst, 10 = Best</small> -->
+            <textarea placeholder="How did you feel?"></textarea>
             <button onclick="submitForm('exercise')">Add Exercise</button>
         </div>
 
         <!-- Meal Form (Hidden) -->
-        <div id="mealForm" class="meal-form" style="display: none;">            
+        <div id="mealForm" class="meal-form" style="display: none;">                
             <button class="close-btn" onclick="closeForm()">X</button>
             <h2>Meal</h2>
             <input type="text" placeholder="Food Name">
@@ -242,6 +223,10 @@
             </select>
             <textarea placeholder="Describe your meal..."></textarea>
             <input type="number" placeholder="Calories">
+            <input type="number" placeholder="Fat">
+            <input type="number" placeholder="Cholesterol">
+            <input type="number" placeholder="Sodium">
+            <input type="number" placeholder="Protein">
             <button onclick="submitForm('meal')">Add Meal</button>
         </div>
 

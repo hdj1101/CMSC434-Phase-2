@@ -236,24 +236,24 @@ function searchExercises() {
 }
 
 function saveWorkout() {
-    const workoutName = document.getElementById('workout-name').value;
-    const workoutType = document.getElementById('workout-type').value;
-    const workoutDuration = document.getElementById('workout-duration').value;
-    const workoutDescription = document.getElementById('workout-description').value;
+    // const workoutName = document.getElementById('workout-name').value;
+    // const workoutType = document.getElementById('workout-type').value;
+    // const workoutDuration = document.getElementById('workout-duration').value;
+    // const workoutDescription = document.getElementById('workout-description').value;
 
-    // Example: Saving the workout to local storage (for simplicity)
-    const workout = {
-        name: workoutName,
-        type: workoutType,
-        duration: workoutDuration,
-        description: workoutDescription
-    };
+    // // Example: Saving the workout to local storage (for simplicity)
+    // const workout = {
+    //     name: workoutName,
+    //     type: workoutType,
+    //     duration: workoutDuration,
+    //     description: workoutDescription
+    // };
 
-    // Save the workout to localStorage (or you could save it to a database or backend)
-    localStorage.setItem('savedWorkout', JSON.stringify(workout));
+    // // Save the workout to localStorage (or you could save it to a database or backend)
+    // localStorage.setItem('savedWorkout', JSON.stringify(workout));
 
-    // Alert or provide feedback
-    alert('Workout saved successfully! Redirecting to Exercise page...');
+    // // Alert or provide feedback
+    // alert('Workout saved successfully! Redirecting to Exercise page...');
 
     // Redirect to the exercise page
     window.location.href = 'exercise.html';
