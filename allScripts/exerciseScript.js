@@ -148,9 +148,9 @@ updateCalendar();
 // Calendar exercise page 
 
 // Function to redirect to exercise page with the selected date
-function goToExercisePage(date) {
+function goToExercisePage(page) {
     // Assuming you have an exercise page that takes a query parameter for the date
-    window.location.href = `exercise${date}.html`;
+    window.location.href = `${page}.html`;
 }
 // Function to open the goal form modal
 function openGoalForm() {

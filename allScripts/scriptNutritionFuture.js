@@ -5,10 +5,10 @@ const progressCircle = document.getElementById('progress-circle');
 const goalText = document.getElementById('goal-text');
 
 const mealGoalData = [
-    { name: 'Breakfast', calorie: 200, startAngle: 0, endAngle: 72 }, // Will figure out how to dynamically update angles later
-    { name: 'Lunch', calorie: 100, startAngle: 72, endAngle: 108 },
-    { name: 'Dinner', calorie: 400, startAngle: 108, endAngle: 252 },
-    { name: 'Snack', calorie: 300, startAngle: 252, endAngle: 360 }
+    { name: 'Breakfast', calorie: 0, startAngle: 0, endAngle: 90 }, // Will figure out how to dynamically update angles later
+    { name: 'Lunch', calorie: 0, startAngle: 90, endAngle: 180 },
+    { name: 'Dinner', calorie: 0, startAngle: 180, endAngle: 270 },
+    { name: 'Snack', calorie: 0, startAngle: 270, endAngle: 360 }
 ];
 
 // Update clock
@@ -96,4 +96,8 @@ function showMealDetails(name, type, calories, fat, cholesterol, sodium, protein
 // Close Meal Details Overlay
 function closeMealOverlay() {
     document.getElementById("mealOverlay").style.display = 'none';
+}
+
+function goToNutritionPage(page) {
+    window.location.href = `${page}.html`;
 }

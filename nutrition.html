@@ -21,13 +21,13 @@
         <div class="calendar-container">
             <div class="calendar-days">
                 <button id="prevWeek" class="cal-arrow-button">&#60;</button>
-                <div class="day" id="sun" onclick="goToNutritionPage('-04-23')">23</div>
-                <div class="day" id="mon" onclick="goToNutritionPage('-04-24')">24</div>
-                <div class="day" id="tue" onclick="goToNutritionPage('-04-25')">25</div>
-                <div class="day selected" id="wed" onclick="goToNutritionPage('')">26</div>
-                <div class="day" id="thu" onclick="goToNutritionPage('-04-27')" >27</div>
-                <div class="day" id="fri" onclick="goToNutritionPage('-04-28')">28</div>
-                <div class="day" id="sat" onclick="goToNutritionPage('-04-29')">29</div>
+                <div class="day" id="sun" onclick="goToNutritionPage('nutrition-04-23')">23</div>
+                <div class="day" id="mon" onclick="goToNutritionPage('nutrition-04-24')">24</div>
+                <div class="day" id="tue" onclick="goToNutritionPage('nutrition-04-25')">25</div>
+                <div class="day selected" id="wed" onclick="goToNutritionPage('nutrition')">26</div>
+                <div class="day" id="thu" onclick="goToNutritionPage('nutrition-04-27')" >27</div>
+                <div class="day" id="fri" onclick="goToNutritionPage('nutrition-04-28')">28</div>
+                <div class="day" id="sat" onclick="goToNutritionPage('nutrition-04-29')">29</div>
                 <button id="nextWeek" class="cal-arrow-button">&#62;</button>
             </div>
         </div>
@@ -159,9 +159,7 @@
             </select>
             <textarea placeholder="Describe your exercise..."></textarea>
             <input type="number" placeholder="Duration (minutes)">
-            <!-- <label>How did you feel?</label> -->
-            <!-- <input type="range" min="1" max="10" placeholder="How did you feel?"> --> <!-- Not sure if we want to do this, might implement different variation later-->
-            <!-- <small>1 = Worst, 10 = Best</small> -->
+            <textarea placeholder="How did you feel?"></textarea>
             <button onclick="submitForm('exercise')">Add Exercise</button>
         </div>
 
@@ -178,6 +176,10 @@
             </select>
             <textarea placeholder="Describe your meal..."></textarea>
             <input type="number" placeholder="Calories">
+            <input type="number" placeholder="Fat">
+            <input type="number" placeholder="Cholesterol">
+            <input type="number" placeholder="Sodium">
+            <input type="number" placeholder="Protein">
             <button onclick="submitForm('meal')">Add Meal</button>
         </div>
 

@@ -97,3 +97,7 @@ function showMealDetails(name, type, calories, fat, cholesterol, sodium, protein
 function closeMealOverlay() {
     document.getElementById("mealOverlay").style.display = 'none';
 }
+
+function goToNutritionPage(page) {
+    window.location.href = `${page}.html`;
+}

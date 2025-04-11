@@ -8,7 +8,7 @@ const mealGoalData = [
     { name: 'Breakfast', calorie: 500, startAngle: 0, endAngle: 120 }, // Will figure out how to dynamically update angles later
     { name: 'Lunch', calorie: 500, startAngle: 120, endAngle: 240 },
     { name: 'Dinner', calorie: 500, startAngle: 240, endAngle: 360 },
-    { name: 'Snack', calorie: 500, startAngle: 0, endAngle: 0 }
+    { name: 'Snack', calorie: 0, startAngle: 0, endAngle: 0 }
 ];
 
 // Update clock
@@ -96,4 +96,8 @@ function showMealDetails(name, type, calories, fat, cholesterol, sodium, protein
 // Close Meal Details Overlay
 function closeMealOverlay() {
     document.getElementById("mealOverlay").style.display = 'none';
+}
+
+function goToNutritionPage(page) {
+    window.location.href = `${page}.html`;
 }

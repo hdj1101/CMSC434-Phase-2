@@ -5,105 +5,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=640, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="allStyles/styles.css">
-    <link rel="stylesheet" href="allStyles/stylesDash.css">
+    <link rel="stylesheet" href="allStyles/stylesNutritionPrev.css">
     <script src="allScripts/script.js" defer></script>
-    <script src="allScripts/scriptDash.js" defer></script>
+    <script src="allScripts/scriptNutritionPrev.js" defer></script>
 </head>
 <body>
     <div class="container">
-        <h1>This Week...</h1>
-
+        <h1>-Nutrition-</h1>
         <div class="content">
-            <div class="calendar-island">
-                <div class="calendar">
-                    <div class="calendar-row">
-                        <div class="calendar-column">
-                            <div class="day-label">Sun</div>
-                            <button class="day-circle" onclick="selectDay(this)">23</button>
-                        </div>
-                        <div class="calendar-column">
-                            <div class="day-label">Mon</div>
-                            <button class="day-circle" onclick="selectDay(this)">24</button>
-                        </div>
-                        <div class="calendar-column">
-                            <div class="day-label">Tue</div>
-                            <button class="day-circle" onclick="selectDay(this)">25</button>
-                        </div>
-                        <div class="calendar-column">
-                            <div class="day-label">Wed</div>
-                            <button class="day-circle" id="default-selected" onclick="selectDay(this)">26</button>
-                        </div>
-                        <div class="calendar-column">
-                            <div class="day-label">Thu</div>
-                            <button class="day-circle" onclick="selectDay(this)">27</button>
-                        </div>
-                        <div class="calendar-column">
-                            <div class="day-label">Fri</div>
-                            <button class="day-circle" onclick="selectDay(this)">28</button>
-                        </div>
-                        <div class="calendar-column">
-                            <div class="day-label">Sat</div>
-                            <button class="day-circle" onclick="selectDay(this)">29</button>
-                        </div>
-                    </div>
-                </div>                
-            </div>
+            <!-- Main content of the page here -->
+        </div>
 
-            <div class="progress-island">
-                <h2>Today's Progress</h2>
-                <div class="progress-container-row">
-                    <!-- Step Tracker Left -->
-                    <div class="progress-left">
-                        <svg class="progress-ring" width="120" height="120">
-                            <circle class="progress-ring__bg" cx="60" cy="60" r="50" />
-                            <circle class="progress-ring__circle" cx="60" cy="60" r="50" />
-                        </svg>
-                        <p class="step-info"><strong id="step-count">4,250</strong> / 10,000 steps</p>
-                    </div>
-            
-                    <!-- Stats Right -->
-                    <div class="progress-right">
-                        <div class="stat-row">
-                            <img src="icons/FireIcon.jpeg" alt="flame icon" class="stat-icon">
-                            <p class="stat-label"><strong id = "calories-count">200</strong> Calories Burned</p>
-                        </div>
-                        <div class="stat-row">
-                            <img src="icons/StreakIcon.jpeg" alt="streak icon" class="stat-icon">
-                            <p class="stat-label"><strong id = "streak-count"> 2</strong> Day Streak</p>
-                        </div>
-                    </div>
+        <!-- <div class="date-text" id="date-text"></div> -->
+
+        <div class="calendar-container">
+            <div class="calendar-days">
+                <button id="prevWeek" class="cal-arrow-button">&#60;</button>
+                <div class="day selected" id="sun" onclick="goToNutritionPage('nutrition-04-23')">23</div>
+                <div class="day" id="mon" onclick="goToNutritionPage('nutrition-04-24')">24</div>
+                <div class="day" id="tue" onclick="goToNutritionPage('nutrition-04-25')">25</div>
+                <div class="day" id="wed" onclick="goToNutritionPage('nutrition')">26</div>
+                <div class="day" id="thu" onclick="goToNutritionPage('nutrition-04-27')" >27</div>
+                <div class="day" id="fri" onclick="goToNutritionPage('nutrition-04-28')">28</div>
+                <div class="day" id="sat" onclick="goToNutritionPage('nutrition-04-29')">29</div>
+                <button id="nextWeek" class="cal-arrow-button">&#62;</button>
+            </div>
+        </div>
+
+        <div class="circle-container">
+            <div class="circle meals"></div>
+            <div class="circle goal">
+                <div class="goal-text" id="goal-text">
+                    <!-- Text updates dynamically -->
                 </div>
             </div>
-                   
+            <div class="circle progress" id="progress-circle"></div>
+        </div>
 
-            <a href="weekly-report.html" class="weekly-report-button">Your Weekly Report</a>
+        <div class="circle-overlay-box" id="overlay-box"> </div>
+
+        <div class="main-box">
+            <h2>Recent Meals</h2>
+            <div class="meal-grid">
+                <div class="meal-box" onclick="showMealDetails('Quesadilla', 'Dinner', 200, '1g', '0mg', '85mg', '1g')">
+                    <p>Quesadilla</p>
+                    <p>200 cal</p>
+                </div>
+                <div class="meal-box" onclick="showMealDetails('Sausage Links', 'Dinner', 300, '20g', '50mg', '400mg', '30g')">
+                    <p>Sausage Links</p>
+                    <p>300 cal</p>
+                </div>
+                <div class="meal-box" onclick="showMealDetails('Chicken Wrap', 'Lunch', 240, '0g', '0mg', '10mg', '5g')">
+                    <p>Chicken Wrap</p>
+                    <p>500 cal</p>
+                </div>
+                <div class="meal-box" onclick="showMealDetails('Cereal', 'Breakfast', 100, '5g', '0mg', '150mg', '8g')">
+                    <p>Cereal</p>
+                    <p>500 cal</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Meal Details Overlay -->
+        <div id="mealOverlay" class="meal-overlay">
+            <div class="meal-details">
+                <button class="close-btn" onclick="closeMealOverlay()">X</button>
+                <h2 id="mealName">Meal Name</h2>
+                <p><strong>Meal Type:</strong> <span id="mealType"></span></p>
+                <p><strong>Calories:</strong> <span id="mealCalories"></span></p>
+                <p><strong>Total Fat:</strong> <span id="mealFat"></span></p>
+                <p><strong>Cholesterol:</strong> <span id="mealCholesterol"></span></p>
+                <p><strong>Sodium:</strong> <span id="mealSodium"></span></p>
+                <p><strong>Protein:</strong> <span id="mealProtein"></span></p>
+            </div>
         </div>
 
         <!-- Main Image Section -->
         <div class="image-container">
             <!-- Dashboard Icon -->
-            <div class="image-item active">
+            <div class="image-item">
                 <div class="dashboard-icon">
                     <a href="index.html">
                         <img src="icons/dashboard.svg" alt="Dashboard">
                         <p class="alt-text">Dashboard</p>
-                        <div class="overlay"></div>
                     </a>
                 </div>
             </div>
 
             <!-- Nutrition Icon -->
-            <div class="image-item">
+            <div class="image-item active">
                 <div class="nutrition-icon">
                     <a href="nutrition.html">
                         <img src="icons/apple 2.svg" alt="Nutrition">
                         <p class="alt-text">Nutrition</p>
+                        <div class="overlay"></div>
                     </a>
                 </div>
             </div>
 
             <!-- Plus Button in the center -->
             <div class="image-item">
+
                 <button class="plus-button" id="plusButton">+</button>
             </div>
         
