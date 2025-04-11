@@ -240,11 +240,3 @@ button.close-btn {
     border-radius: 5px;
 }
 
-/* Small text for slider labels */
-small {
-    display: block;
-    margin-top: 5px;
-    text-align: center;
-    font-size: 12px;
-}
-

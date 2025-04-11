@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=640, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="styles.css" />
+  <title>Weekly Progress</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Weekly Progress</h1>
+    <p>Welcome to your weekly progress! This page tracks your weight and calorie trends over this week.</p>
+
+     <!-- Back Link -->
+     <a href="profile.html">← Back to Profile</a>
+
+    <!-- Graphs Section -->
+    <div class="charts-section">
+      <!-- Summary of Food Consumption -->
+      <details class="chart-toggle">
+        <summary> Weekly Nutrition Summary 🥗 </summary>
+        <div class="nutrition-summary">
+          <div class="nutrition-item">
+            <span class="nutrition-label">Vegetables:</span>
+            <span class="nutrition-value">12 servings</span>
+          </div>
+          <div class="nutrition-item">
+            <span class="nutrition-label">Fresh Fruits:</span>
+            <span class="nutrition-value">8 servings</span>
+          </div>
+          <div class="nutrition-item">
+            <span class="nutrition-label">Proteins:</span>
+            <span class="nutrition-value">18 servings</span>
+          </div>
+          <div class="nutrition-item">
+            <span class="nutrition-label">Sweets:</span>
+            <span class="nutrition-value">4 servings</span>
+          </div>
+          <div class="nutrition-item">
+            <span class="nutrition-label">Alcoholic Beverages:</span>
+            <span class="nutrition-value">2 servings</span>
+          </div>
+        </div>
+      </details>
+
+      <!-- Calorie Comparison -->
+      <details class="chart-toggle">
+        <summary> Weekly Calorie Goal vs Logged Calories 📊 </summary>
+        <div class="chart-container">
+          <canvas id="calorieComparisonChart"></canvas>
+          <p class="caption">This chart compares your calorie goal, calories logged, and calories burned throughout the week.</p>
+        </div>
+      </details>
+    
+      <!-- Calories per Meal -->
+      <details class="chart-toggle">
+        <summary> Calories per Meal 🍽️ </summary>
+        <div class="chart-container">
+          <canvas id="mealCaloriesChart"></canvas>
+          <p class="caption">This graph shows how many calories you consumed at each meal on average throughout this week.</p>
+        </div>
+      </details>
+    
+      <!-- Macronutrient Breakdown -->
+      <details class="chart-toggle">
+        <summary> Macronutrient Breakdown 🥦 </summary>
+        <div class="chart-container">
+          <canvas id="macronutrientChart"></canvas>
+          <p class="caption">This pie chart shows the breakdown of your diet into fat, carbs, and protein for the week.</p>
+        </div>
+      </details>
+    
+      <!-- Exercise & Steps -->
+      <details class="chart-toggle">
+        <summary> Exercise & Steps 🏃</summary>
+        <div class="chart-container">
+          <canvas id="exerciseStepsChart"></canvas>
+          <p class="caption">This chart tracks your total steps and minutes of exercise during the week.</p>
+        </div>
+      </details>
+    </div>    
+
+   
+  </div>
+
+  <script>
+    // Data for charts
+    const calorieComparisonData = {
+      labels: ['Week 1'],
+      datasets: [
+        {
+          label: 'Calorie Goal',
+          data: [2500],
+          backgroundColor: 'rgba(75, 192, 192, 0.5)',
+        },
+        {
+          label: 'Average Calories Logged',
+          data: [2217],
+          backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        },
+        {
+          label: 'Average Calories Burned',
+          data: [250],
+          backgroundColor: 'rgba(153, 102, 255, 0.5)',
+        }
+      ]
+    };
+
+    const mealCaloriesData = {
+      labels: ['Breakfast', 'Lunch', 'Dinner', 'Snacks'],
+      datasets: [{
+        label: 'Calories Consumed',
+        data: [400, 200, 800, 100],
+        backgroundColor: 'rgba(255, 159, 64, 0.5)',
+        borderColor: 'rgba(255, 159, 64, 1)',
+        borderWidth: 1
+      }]
+    };
+
+    const macronutrientData = {
+      labels: ['Fat (g)', 'Carbs (g)', 'Protein (g)'],
+      datasets: [{
+        data: [70, 200, 120],
+        backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgba(54, 162, 235, 0.5)', 'rgba(255, 206, 86, 0.5)']
+      }]
+    };
+
+    const exerciseStepsData = {
+      labels: ['Per 100 Steps', 'Minutes of Exercise'],
+      datasets: [{
+        label: 'Exercise Data',
+        data: [700, 320],
+        backgroundColor: ['rgba(75, 192, 192, 0.5)', 'rgba(153, 102, 255, 0.5)'],
+        borderColor: ['rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'],
+        borderWidth: 1
+      }]
+    };
+
+    // Initialize the charts
+    new Chart(document.getElementById('calorieComparisonChart'), {
+      type: 'bar',
+      data: calorieComparisonData,
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+          }
+        },
+        plugins: {
+          tooltip: {
+            backgroundColor: 'white',
+            titleColor: '#325E2C',
+            bodyColor: '#555',
+          },
+        },
+        backgroundColor: 'white',
+      }
+    });
+
+    new Chart(document.getElementById('mealCaloriesChart'), {
+      type: 'bar',
+      data: mealCaloriesData,
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+          }
+        },
+        plugins: {
+          tooltip: {
+            backgroundColor: 'white',
+            titleColor: '#325E2C',
+            bodyColor: '#555',
+          },
+        },
+        backgroundColor: 'white',
+      }
+    });
+
+    new Chart(document.getElementById('macronutrientChart'), {
+      type: 'pie',
+      data: macronutrientData,
+      options: {
+        responsive: true,
+        plugins: {
+          tooltip: {
+            backgroundColor: 'white',
+            titleColor: '#325E2C',
+            bodyColor: '#555',
+          },
+        },
+        backgroundColor: 'white',
+      }
+    });
+
+    new Chart(document.getElementById('exerciseStepsChart'), {
+      type: 'bar',
+      data: exerciseStepsData,
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+          }
+        },
+        plugins: {
+          tooltip: {
+            backgroundColor: 'white',
+            titleColor: '#325E2C',
+            bodyColor: '#555',
+          },
+        },
+        backgroundColor: 'white',
+      }
+    });
+  </script>
+</body>
+</html>

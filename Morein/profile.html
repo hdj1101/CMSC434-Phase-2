@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=640, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="styles.css"> 
+  <title>User Profile</title>
+</head>
+<body>
+  <div class="container">
+    <div class="profile-header">
+      <img src="testudo.jpg" alt="Profile Picture" />
+      <div class="user-info">
+        <h2 id="username">Testudo Terrapin</h2>
+        <p id="email">testudo@terpmail.umd.edu</p>
+      </div>
+    </div>
+
+    <!-- User Input Form -->
+    <form id="profile-form">
+      <label for="age">Age:</label>
+      <input type="number" id="age" required />
+
+      <label for="weight">Weight:</label>
+      <div id="weight-inputs">
+        <input type="number" id="weight" required />
+        <select id="weight-unit">
+          <option value="kg">kg</option>
+          <option value="lbs">lbs</option>
+        </select>
+      </div>
+
+      <label for="height">Height:</label>
+      <div id="Height-inputs">
+        <input type="number" id="height" required />
+        <select id="height-unit">
+          <option value="in">inches</option>
+          <option value="cm">cm</option>
+        </select>
+      </div>
+
+      <label for="gender">Gender:</label>
+      <select id="gender" required>
+        <option value="">--Select--</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <label for="exercise">Exercise Level:</label>
+      <select id="exercise" required>
+        <option value="">--Select--</option>
+        <option value="1.2">Little or no exercise</option>
+        <option value="1.375">Light exercise (1–3 days/week)</option>
+        <option value="1.55">Moderate exercise (3–5 days/week)</option>
+        <option value="1.725">Heavy exercise (6–7 days/week)</option>
+        <option value="1.9">Very intense exercise (2x/day)</option>
+      </select>
+
+      <label for="goal">Weight Goal:</label>
+      <div id="goal-inputs">
+        <input type="number" id="goal" required />
+        <select id="goal-unit">
+          <option value="kg">kg</option>
+          <option value="lbs">lbs</option>
+        </select>
+      </div>
+      
+      <label for="weekly-loss">Goal Weight Change per Week:</label>
+      <div id="weekly-loss-inputs">
+        <input type="number" id="weekly-loss" step="0.1" required />
+        <select id="loss-unit">
+          <option value="kg">kg</option>
+          <option value="lbs">lbs</option>
+        </select>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Summary Section -->
+    <div class="summary" id="summary" style="display: none;">
+      <h2>Profile Summary</h2>
+      <div class="summary-item">
+        <span class="summary-label">BMI:</span>
+        <span class="summary-value" id="bmi"></span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Recommended Daily Calories:</span>
+        <span class="summary-value" id="calories"></span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">BMR:</span>
+        <span class="summary-value" id="bmr"></span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Exercise Level:</span>
+        <span class="summary-value" id="exercise-level"></span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">TDEE:</span>
+        <span class="summary-value" id="tdee"></span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Adjusted Calories for Goal:</span>
+        <span class="summary-value" id="adjusted-calories"></span>
+      </div>
+    </div>
+
+    <button id="edit-measurements-btn" style="display: none;">Edit My Measurements</button>
+
+    <!-- Additional Tabs -->
+    <div class="tabs" id="extra-tabs" style="display: none;">
+      <h2>Explore Your Data</h2>
+      <ul>
+        <li><a href="weekly-progress.html">📈 Weekly Progress</a></li>
+        <li><a href="goals.html">🎯 Goals</a></li>
+        <li><a href="settings.html">⚙️ Settings</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("profile-form");
+    const summary = document.getElementById("summary");
+    const tabs = document.getElementById("extra-tabs");
+    const editBtn = document.getElementById("edit-measurements-btn");
+
+    // Show summary after form submission
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const weightInput = parseFloat(document.getElementById("weight").value);
+      const weightUnit = document.getElementById("weight-unit").value;
+      let weight = weightUnit === "lbs" ? weightInput * 0.453592 : weightInput;
+
+      const goalInput = parseFloat(document.getElementById("goal").value);
+      const goalUnit = document.getElementById("goal-unit").value;
+      const goalWeight = goalUnit === "lbs" ? goalInput * 0.453592 : goalInput;
+
+      const weeklyLossInput = parseFloat(document.getElementById("weekly-loss").value);
+      const lossUnit = document.getElementById("loss-unit").value;
+      const weeklyLoss = lossUnit === "lbs" ? weeklyLossInput * 0.453592 : weeklyLossInput;
+
+      const heightVal = parseFloat(document.getElementById("height").value);
+      const heightUnitVal = document.getElementById("height-unit").value;
+      let heightCm;
+
+      if (heightUnitVal === "cm") {
+        heightCm = heightVal;
+      } else if (heightUnitVal === "in") {
+        heightCm = heightVal * 2.54;
+      }
+
+      const heightM = heightCm / 100;
+      const age = parseInt(document.getElementById("age").value);
+      const gender = document.getElementById("gender").value;
+      const exercise = parseFloat(document.getElementById("exercise").value);
+
+      const bmi = (weight / (heightM * heightM)).toFixed(2);
+      document.getElementById("bmi").textContent = bmi;
+
+      let bmr;
+      if (gender === "male") {
+        bmr = 88.362 + (13.397 * weight) + (4.799 * heightCm) - (5.677 * age);
+      } else if (gender === "female") {
+        bmr = 447.593 + (9.247 * weight) + (3.098 * heightCm) - (4.330 * age);
+      }
+
+      document.getElementById("bmr").textContent = `${Math.round(bmr)} kcal`;
+
+      const tdee = Math.round(bmr * exercise);
+      document.getElementById("tdee").textContent = `${tdee} kcal`;
+
+      let deficitPerDay = weeklyLoss === 1 ? 500 : weeklyLoss === 2 ? 1000 : Math.round((weeklyLoss * 7700) / 7);
+
+      const adjustedCalories = tdee - deficitPerDay;
+      document.getElementById("adjusted-calories").textContent = `${adjustedCalories} kcal`;
+
+      document.getElementById("calories").textContent = `${tdee} kcal`;
+
+      const exerciseText = document.getElementById("exercise").selectedOptions[0].textContent;
+      document.getElementById("exercise-level").textContent = exerciseText;
+
+      // Hide the form and show the summary
+      form.style.display = "none";
+      summary.style.display = "block";
+      tabs.style.display = "block";
+      editBtn.style.display = "block"; 
+    });
+
+    // When clicking "Edit My Measurements", reset the form and show the original state
+    editBtn.addEventListener("click", function () {
+    window.location.reload(); // Reloads the page to the original state
+    });
+  </script>
+</body>
+</html>
