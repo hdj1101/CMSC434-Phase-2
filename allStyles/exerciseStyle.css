@@ -81,7 +81,7 @@ html::-webkit-scrollbar {
 /* Plus Button */
 .plus-button {
     position: absolute;
-    top: 30%;
+    top: 31%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #93B3E8;
@@ -93,6 +93,11 @@ html::-webkit-scrollbar {
     border: solid #323435 4pt;
     cursor: pointer;
     z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.plus-button:hover {
+    background-color: white;
 }
 
 /* Dashboard, Nutrition, Exercise, and Settings Icons */
@@ -635,6 +640,8 @@ button[type="submit"]:hover {
   margin-bottom: 1rem;
   position: absolute;
   top : 6.375rem;
+  left: 50%;
+  transform: translateX(-50%);
 
 }
 

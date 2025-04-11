@@ -4,6 +4,10 @@ html, body {
     padding: 0;
     width: 100%;
     overflow: hidden;
+
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* font-size: 18px; */
+    color: #333;
     /*scrollbar-color: #777 #2b2727;*/
 }
 
@@ -24,9 +28,6 @@ html::-webkit-scrollbar{
 
 .container h1 {
     text-align: center;
-    color: #325E2C;
-    font-size: 36px;
-    font-family: 'Arial', sans-serif;
     margin: 0;
 }
 
@@ -43,7 +44,7 @@ html::-webkit-scrollbar{
     width: 640px;
     height: 100%;
     max-height: 960px;
-    background-color: #DBE8D9;
+    background-color: #F6F7FF;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -54,7 +55,7 @@ html::-webkit-scrollbar{
 .image-container {
     display: flex;
     justify-content: space-around;
-    background-color: #F1FFF0; /* Background color for the image section */
+    background-color: #F6F7FF; /* Background color for the image section */
     padding: 0 0;
     position: relative;
     margin-top: auto;
@@ -166,7 +167,7 @@ body {
   
 /* Ensure the profile summary and tabs are centered and match each other in width */
 .summary, .tabs {
-    background-color: #F1FFF0; /* Match the color of Explore Your Data tabs */
+    background-color: #F6F7FF; /* Match the color of Explore Your Data tabs */
     padding: 20px;
     display: block;
     width: 540px; /* Same width as the profile form */

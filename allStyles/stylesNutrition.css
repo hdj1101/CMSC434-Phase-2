@@ -205,7 +205,6 @@
     margin-bottom: 1rem;
     position: absolute;
     top : 6.375rem;
-  
   }
   
   .calendar-header {
@@ -228,7 +227,7 @@
     width: 100%;
   }
   
-  .day {
+.day {
     width: 44px;
     height: 44px;
     border-radius: 50%;
@@ -242,20 +241,20 @@
     transition: background-color 0.3s;
   }
   
-  .day:hover {
+.day:hover {
     background-color: #ddd;
   }
   
-  .day.selected {
+.day.selected {
       background-color: #FDC5C0;
       color: 323435;
   }
   
-  #wed {
+#wed {
     border: solid #D4392B 1pt;
   }
 
-  .cal-arrow-button {
+.cal-arrow-button {
     font-size: 24px;
     background-color: transparent;
     border: none;
@@ -263,19 +262,16 @@
     color: #323435;
 }
   
-  /* Arrow Button Styles */
-  /* Hover effect */
-  .arrow-button:hover {
-    color: #93B3E8; /* Highlight color when hovering */
-  }
+.arrow-button:hover {
+    color: #93B3E8;
+}
   
-  /* Optional: Styling for the Submit button text */
-  .arrow-button[type="submit"] {
+.arrow-button[type="submit"] {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
   
-  .arrow-button[type="submit"]:hover {
+.arrow-button[type="submit"]:hover {
     background-color: #7a9cb6;
-  }
+}

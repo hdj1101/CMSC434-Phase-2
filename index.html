@@ -16,36 +16,24 @@
         <div class="content">
             <div class="calendar-island">
                 <div class="calendar">
-                    <div class="calendar-row">
-                        <div class="calendar-column">
-                            <div class="day-label">Sun</div>
-                            <button class="day-circle" onclick="selectDay(this)">23</button>
-                        </div>
-                        <div class="calendar-column">
-                            <div class="day-label">Mon</div>
-                            <button class="day-circle" onclick="selectDay(this)">24</button>
-                        </div>
-                        <div class="calendar-column">
-                            <div class="day-label">Tue</div>
-                            <button class="day-circle" onclick="selectDay(this)">25</button>
-                        </div>
-                        <div class="calendar-column">
-                            <div class="day-label">Wed</div>
-                            <button class="day-circle" id="default-selected" onclick="selectDay(this)">26</button>
-                        </div>
-                        <div class="calendar-column">
-                            <div class="day-label">Thu</div>
-                            <button class="day-circle" onclick="selectDay(this)">27</button>
-                        </div>
-                        <div class="calendar-column">
-                            <div class="day-label">Fri</div>
-                            <button class="day-circle" onclick="selectDay(this)">28</button>
-                        </div>
-                        <div class="calendar-column">
-                            <div class="day-label">Sat</div>
-                            <button class="day-circle" onclick="selectDay(this)">29</button>
-                        </div>
-                    </div>
+                    <button id="prevWeek" class="cal-arrow-button">&#60;</button>
+                    <!-- <div class="calendar-row"> -->
+                        <!-- <div class="day-label">Sun</div> -->
+                    <button class="day-circle" onclick="selectDay(this)">23</button>
+                        <!-- <div class="day-label">Mon</div> -->
+                    <button class="day-circle" onclick="selectDay(this)">24</button>
+                        <!-- <div class="day-label">Tue</div> -->
+                    <button class="day-circle" onclick="selectDay(this)">25</button>
+                        <!-- <div class="day-label">Wed</div> -->
+                    <button class="day-circle" id="default-selected" onclick="selectDay(this)">26</button>
+                        <!-- <div class="day-label">Thu</div> -->
+                    <button class="day-circle" onclick="selectDay(this)">27</button>
+                        <!-- <div class="day-label">Fri</div> -->
+                    <button class="day-circle" onclick="selectDay(this)">28</button>
+                        <!-- <div class="day-label">Sat</div> -->
+                    <button class="day-circle" onclick="selectDay(this)">29</button>
+                    <!-- </div> -->
+                    <button id="nextWeek" class="cal-arrow-button">&#62;</button>
                 </div>                
             </div>
 
@@ -76,7 +64,7 @@
             </div>
                    
 
-            <a href="weekly-report.html" class="weekly-report-button">Your Weekly Report</a>
+            <a href="weekly-progress.html" class="weekly-report-button">Your Weekly Report</a>
         </div>
 
         <!-- Main Image Section -->
